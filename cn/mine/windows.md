@@ -161,5 +161,6 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 
 订阅号  
 ![订阅号](wechat.jpg)
+
 联系方式：  
 ![邮件](email.png)
