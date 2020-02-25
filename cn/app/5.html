@@ -1,0 +1,914 @@
+
+<!DOCTYPE HTML>
+<html lang="cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>执行合约 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="6.html" />
+    
+    
+    <link rel="prev" href="4.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../wp/">
+            
+                <a href="../wp/">
+            
+                    
+                    白皮书
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../wp/1.html">
+            
+                <a href="../wp/1.html">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../wp/1.1.html">
+            
+                <a href="../wp/1.1.html">
+            
+                    
+                    区块链市场
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../wp/1.2.html">
+            
+                <a href="../wp/1.2.html">
+            
+                    
+                    痛点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../wp/1.3.html">
+            
+                <a href="../wp/1.3.html">
+            
+                    
+                    性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../wp/1.4.html">
+            
+                <a href="../wp/1.4.html">
+            
+                    
+                    IOTA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../wp/1.5.html">
+            
+                <a href="../wp/1.5.html">
+            
+                    
+                    Ethereum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="../wp/1.6.html">
+            
+                <a href="../wp/1.6.html">
+            
+                    
+                    Fabric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7" data-path="../wp/1.7.html">
+            
+                <a href="../wp/1.7.html">
+            
+                    
+                    Polkadot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8" data-path="../wp/1.8.html">
+            
+                <a href="../wp/1.8.html">
+            
+                    
+                    Cosmos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.9" data-path="../wp/1.9.html">
+            
+                <a href="../wp/1.9.html">
+            
+                    
+                    孚衍的技术方向
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../wp/2.html">
+            
+                <a href="../wp/2.html">
+            
+                    
+                    共识算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../wp/3.html">
+            
+                <a href="../wp/3.html">
+            
+                    
+                    链和区块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../wp/3.1.html">
+            
+                <a href="../wp/3.1.html">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../wp/3.2.html">
+            
+                <a href="../wp/3.2.html">
+            
+                    
+                    链间的逻辑关系
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../wp/3.3.html">
+            
+                <a href="../wp/3.3.html">
+            
+                    
+                    链的创建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../wp/3.4.html">
+            
+                <a href="../wp/3.4.html">
+            
+                    
+                    区块结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../wp/3.5.html">
+            
+                <a href="../wp/3.5.html">
+            
+                    
+                    链间区块关系
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../wp/3.6.html">
+            
+                <a href="../wp/3.6.html">
+            
+                    
+                    区块时间间隔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../wp/3.7.html">
+            
+                <a href="../wp/3.7.html">
+            
+                    
+                    区块校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../wp/3.8.html">
+            
+                <a href="../wp/3.8.html">
+            
+                    
+                    突破单节点性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../wp/4.html">
+            
+                <a href="../wp/4.html">
+            
+                    
+                    数据
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../wp/4.1.html">
+            
+                <a href="../wp/4.1.html">
+            
+                    
+                    逻辑存储结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../wp/4.2.html">
+            
+                <a href="../wp/4.2.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../wp/4.3.html">
+            
+                <a href="../wp/4.3.html">
+            
+                    
+                    数据的生命周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../wp/4.4.html">
+            
+                <a href="../wp/4.4.html">
+            
+                    
+                    权限控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../wp/4.5.html">
+            
+                <a href="../wp/4.5.html">
+            
+                    
+                    数据回滚
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../wp/5.html">
+            
+                <a href="../wp/5.html">
+            
+                    
+                    交易
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../wp/6.html">
+            
+                <a href="../wp/6.html">
+            
+                    
+                    账户
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../wp/7.html">
+            
+                <a href="../wp/7.html">
+            
+                    
+                    奖励
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../wp/8.html">
+            
+                <a href="../wp/8.html">
+            
+                    
+                    智能合约
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../wp/9.html">
+            
+                <a href="../wp/9.html">
+            
+                    
+                    理论数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../wp/finish.html">
+            
+                <a href="../wp/finish.html">
+            
+                    
+                    结论
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mine/">
+            
+                <a href="../mine/">
+            
+                    
+                    挖矿教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mine/windows.html">
+            
+                <a href="../mine/windows.html">
+            
+                    
+                    挖矿教程(windows)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    智能合约
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="app_dev.html">
+            
+                <a href="app_dev.html">
+            
+                    
+                    智能合约的开发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    环境要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    搭建测试网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    创建第一个合约
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    发布合约
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.5" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    执行合约
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    昵称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    GOVM后台的合约流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    系统接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >执行合约</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6267;&#x884C;&#x5408;&#x7EA6;">&#x6267;&#x884C;&#x5408;&#x7EA6;</h1>
+<ol>
+<li>&#x9700;&#x8981;&#x786E;&#x4FDD;&#x4F60;&#x6709;&#x4EE3;&#x5E01;</li>
+<li>&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;<a href="http://127.0.0.1:47778/run_app.html" target="_blank">http://127.0.0.1:47778/run_app.html</a></li>
+<li>&#x94FE;(Chain)&#xFF1A;&#x586B;&#x5199;&#x5408;&#x7EA6;&#x6240;&#x5728;&#x7684;&#x94FE;</li>
+<li>&#x5408;&#x7EA6;&#x540D;&#x5B57;(APP Name)&#xFF1A;&#x586B;&#x5199;&#x4F60;&#x8981;&#x6267;&#x884C;&#x7684;&#x5408;&#x7EA6;&#xFF0C;&#x5982;&#x4F60;&#x521A;&#x521A;&#x521B;&#x5EFA;&#x7684;&#x5408;&#x7EA6;&#xFF0C;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x4EBA;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x597D;&#x7684;&#x5408;&#x7EA6;</li>
+<li>&#x5408;&#x7EA6;&#x8D39;&#x7528;(Cost)&#xFF1A;&#x5982;&#x679C;&#x5408;&#x7EA6;&#x6709;&#x6536;&#x8D39;&#xFF0C;&#x6839;&#x636E;&#x6536;&#x8D39;&#x586B;&#x5199;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#xFF0C;&#x586B;0&#xFF0C;&#x7C7B;&#x4F3C;&#x5356;&#x7968;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x7968;&#x4EF7;</li>
+<li>&#x624B;&#x7EED;&#x8D39;(Energy)&#xFF1A;&#x8FD9;&#x662F;&#x7ED9;&#x77FF;&#x5DE5;&#x7684;&#x624B;&#x7EED;&#x8D39;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E0D;&#x4F4E;&#x4E8E;0.01t9&#xFF0C;&#x5408;&#x7EA6;&#x8D8A;&#x590D;&#x6742;&#xFF0C;&#x9700;&#x8981;&#x7684;&#x624B;&#x7EED;&#x8D39;&#x8D8A;&#x9AD8;</li>
+<li>&#x6570;&#x636E;&#x7C7B;&#x578B;(Data Type)&#xFF1A;&#x9ED8;&#x8BA4;&#x90FD;&#x662F;string&#x7C7B;&#x578B;</li>
+<li>&#x6570;&#x636E;(Data)&#xFF1A;&#x586B;&#x5199;&#x5408;&#x7EA6;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x540C;&#x5408;&#x7EA6;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x8981;&#x6C42;&#xFF08;&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5408;&#x7EA6;&#x4F1A;&#x6709;&#x4E13;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x9875;&#x9762;&#x548C;&#x64CD;&#x4F5C;&#x6307;&#x5BFC;&#xFF09;&#xFF0C;&#x4E0A;&#x9762;&#x521B;&#x5EFA;&#x7684;&#x7B80;&#x5355;&#x7684;&#x5408;&#x7EA6;&#xFF0C;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x586B;&#xFF0C;&#x6CA1;&#x9650;&#x5236;&#xFF08;&#x4E0D;&#x586B;&#x5199;&#x4E5F;&#x53EF;&#x4EE5;&#xFF09;</li>
+<li>&#x7136;&#x540E;&#x70B9;&#x51FB;&#x63D0;&#x4EA4;&#xFF0C;&#x5C31;&#x80FD;&#x6267;&#x884C;&#x5408;&#x7EA6;&#x4E86;&#x3002;</li>
+</ol>
+<p><img src="run.png" alt="&#x6267;&#x884C;&#x5408;&#x7EA6;"></p>
+<p>&#x793A;&#x4F8B;&#x5408;&#x7EA6;&#xFF1A;54dd0677abbf4fa7064cbdce0ef8e01a9196957215e9091e46dd7e3f05e80cb6  </p>
+<p><img src="run1.png" alt="&#x6267;&#x884C;&#x5408;&#x7EA6;1"></p>
+<p>&#x8BE5;&#x5408;&#x7EA6;&#x662F;&#x5C06;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5230;&#x94FE;&#x4E0A;&#xFF0C;<br>&#x6570;&#x636E;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;{&quot;ops&quot;:0,&quot;key&quot;:[1,2,3,4],&quot;value&quot;:456789}<br>ops&#x7B49;&#x4E8E;0&#x8868;&#x793A;&#x5199;&#x6570;&#x636E;&#xFF0C;key&#x8868;&#x793A;&#x6570;&#x636E;&#x7684;&#x540D;&#x5B57;&#xFF0C;value&#x8868;&#x793A;&#x6570;&#x636E;&#x7684;&#x503C;&#xFF0C;&#x8FD9;&#x4E2A;&#x5408;&#x7EA6;&#x7684;value&#x503C;&#x53EA;&#x652F;&#x6301;&#x6570;&#x5B57;&#x3002;<br>&#x8BE5;&#x5408;&#x7EA6;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x9650;&#x5236;&#xFF0C;&#x6240;&#x4EE5;&#x4EFB;&#x4F55;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x76F8;&#x540C;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x540E;&#x9762;&#x6267;&#x884C;&#x7684;&#x4EBA;&#x5C06;&#x4F1A;&#x8986;&#x76D6;&#x4E4B;&#x524D;&#x7684;&#x8BB0;&#x5F55;&#x3002;&#x4E0D;&#x8FC7;&#x4E4B;&#x524D;&#x7684;&#x4EA4;&#x6613;&#x4FE1;&#x606F;&#x8FD8;&#x5B58;&#x5728;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB;&#x8986;&#x76D6;&#x3002;  </p>
+<p><strong>&#x6570;&#x636E;&#x7684;&#x67E5;&#x8BE2;</strong>&#xFF1A;<br><a href="http://127.0.0.1:47778/api/v1/1/data?app_name=54dd0677abbf4fa7064cbdce0ef8e01a9196957215e9091e46dd7e3f05e80cb6&amp;struct_name=tApp&amp;is_db_data=true&amp;key=01020304" target="_blank">http://127.0.0.1:47778/api/v1/1/data?app_name=54dd0677abbf4fa7064cbdce0ef8e01a9196957215e9091e46dd7e3f05e80cb6&amp;struct_name=tApp&amp;is_db_data=true&amp;key=01020304</a><br>&#x8BE5;&#x6570;&#x636E;&#x4E3A;16&#x8FDB;&#x5236;&#x7F16;&#x7801;&#xFF0C;&#x9700;&#x8981;&#x5408;&#x7EA6;&#x5F00;&#x53D1;&#x8005;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x64CD;&#x4F5C;&#x9875;&#x9762;&#x8FDB;&#x884C;&#x89E3;&#x7801;&#x5E76;&#x663E;&#x793A;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4.html" class="navigation navigation-prev " aria-label="Previous page: 发布合约">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="6.html" class="navigation navigation-next " aria-label="Next page: 昵称">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"执行合约","level":"1.4.1.5","depth":3,"next":{"title":"昵称","level":"1.4.1.6","depth":3,"path":"app/6.md","ref":"app/6.md","articles":[]},"previous":{"title":"发布合约","level":"1.4.1.4","depth":3,"path":"app/4.md","ref":"app/4.md","articles":[]},"dir":"ltr"},"config":{"plugins":["accordion","-sharing","chapter-fold","multipart","-livereload","copy-code-button","splitter"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"accordion":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"app/5.md","mtime":"2020-02-23T15:10:32.695Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-25T08:48:05.769Z"},"basePath":"..","book":{"language":"cn"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

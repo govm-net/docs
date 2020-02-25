@@ -1,0 +1,910 @@
+
+<!DOCTYPE HTML>
+<html lang="cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>区块结构 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.5.html" />
+    
+    
+    <link rel="prev" href="3.3.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    白皮书
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="1.1.html">
+            
+                <a href="1.1.html">
+            
+                    
+                    区块链市场
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="1.2.html">
+            
+                <a href="1.2.html">
+            
+                    
+                    痛点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="1.3.html">
+            
+                <a href="1.3.html">
+            
+                    
+                    性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="1.4.html">
+            
+                <a href="1.4.html">
+            
+                    
+                    IOTA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="1.5.html">
+            
+                <a href="1.5.html">
+            
+                    
+                    Ethereum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="1.6.html">
+            
+                <a href="1.6.html">
+            
+                    
+                    Fabric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7" data-path="1.7.html">
+            
+                <a href="1.7.html">
+            
+                    
+                    Polkadot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8" data-path="1.8.html">
+            
+                <a href="1.8.html">
+            
+                    
+                    Cosmos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.9" data-path="1.9.html">
+            
+                <a href="1.9.html">
+            
+                    
+                    孚衍的技术方向
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    共识算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    链和区块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="3.1.html">
+            
+                <a href="3.1.html">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="3.2.html">
+            
+                <a href="3.2.html">
+            
+                    
+                    链间的逻辑关系
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="3.3.html">
+            
+                <a href="3.3.html">
+            
+                    
+                    链的创建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.4" data-path="3.4.html">
+            
+                <a href="3.4.html">
+            
+                    
+                    区块结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="3.5.html">
+            
+                <a href="3.5.html">
+            
+                    
+                    链间区块关系
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="3.6.html">
+            
+                <a href="3.6.html">
+            
+                    
+                    区块时间间隔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="3.7.html">
+            
+                <a href="3.7.html">
+            
+                    
+                    区块校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="3.8.html">
+            
+                <a href="3.8.html">
+            
+                    
+                    突破单节点性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    数据
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="4.1.html">
+            
+                <a href="4.1.html">
+            
+                    
+                    逻辑存储结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="4.2.html">
+            
+                <a href="4.2.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="4.3.html">
+            
+                <a href="4.3.html">
+            
+                    
+                    数据的生命周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="4.4.html">
+            
+                <a href="4.4.html">
+            
+                    
+                    权限控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="4.5.html">
+            
+                <a href="4.5.html">
+            
+                    
+                    数据回滚
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    交易
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    账户
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    奖励
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    智能合约
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    理论数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="finish.html">
+            
+                <a href="finish.html">
+            
+                    
+                    结论
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mine/">
+            
+                <a href="../mine/">
+            
+                    
+                    挖矿教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mine/windows.html">
+            
+                <a href="../mine/windows.html">
+            
+                    
+                    挖矿教程(windows)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../app/">
+            
+                <a href="../app/">
+            
+                    
+                    智能合约
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../app/app_dev.html">
+            
+                <a href="../app/app_dev.html">
+            
+                    
+                    智能合约的开发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../app/1.html">
+            
+                <a href="../app/1.html">
+            
+                    
+                    环境要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../app/2.html">
+            
+                <a href="../app/2.html">
+            
+                    
+                    搭建测试网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../app/3.html">
+            
+                <a href="../app/3.html">
+            
+                    
+                    创建第一个合约
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../app/4.html">
+            
+                <a href="../app/4.html">
+            
+                    
+                    发布合约
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../app/5.html">
+            
+                <a href="../app/5.html">
+            
+                    
+                    执行合约
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="../app/6.html">
+            
+                <a href="../app/6.html">
+            
+                    
+                    昵称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" data-path="../app/7.html">
+            
+                <a href="../app/7.html">
+            
+                    
+                    GOVM后台的合约流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" data-path="../app/8.html">
+            
+                <a href="../app/8.html">
+            
+                    
+                    关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" data-path="../app/9.html">
+            
+                <a href="../app/9.html">
+            
+                    
+                    系统接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >区块结构</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x533A;&#x5757;&#x7ED3;&#x6784;">&#x533A;&#x5757;&#x7ED3;&#x6784;</h1>
+<p><img src="block.png" alt="&#x533A;&#x5757;&#x7ED3;&#x6784;"></p>
+<p>&#x76F8;&#x6BD4;&#x5176;&#x4ED6;&#x533A;&#x5757;&#x94FE;&#x7684;&#x533A;&#x5757;&#xFF0C;&#x65B0;&#x7684;&#x533A;&#x5757;&#x7ED3;&#x6784;&#x589E;&#x52A0;&#x4E86;Chain ID&#xFF0C;Parent Hash&#xFF0C;Child Hash&#x3002;<br>&#x6210;&#x5458;&#x8BF4;&#x660E;&#xFF1A;</p>
+<ul>
+<li>Chain ID&#xFF1A;&#x6807;&#x8BB0;&#x533A;&#x5757;&#x5C5E;&#x4E8E;&#x54EA;&#x4E00;&#x6761;&#x94FE;&#xFF0C;&#x7B2C;&#x4E00;&#x6761;&#x94FE;&#x7684;ID&#x4E3A;1&#x3002;&#x5DE6;&#x5B50;&#x94FE;ID&#x4E3A;&#x5F53;&#x524D;ID*2&#xFF0C;&#x53F3;&#x5B50;&#x94FE;ID&#x4E3A;&#x5F53;&#x524D;ID*2+1&#x3002;</li>
+<li>PreHash&#xFF1A;&#x672C;&#x94FE;&#x524D;&#x4E00;&#x4E2A;&#x533A;&#x5757;&#x7684;&#x54C8;&#x5E0C;&#x503C;&#x3002;</li>
+<li>Parent Hash&#xFF1A;&#x7236;&#x94FE;&#x533A;&#x5757;&#x7684;&#x54C8;&#x5E0C;&#x503C;&#xFF0C;&#x6CA1;&#x6709;&#x65F6;&#x4E3A;&#x7A7A;&#x503C;&#x3002;</li>
+<li>Left Child Hash&#xFF1A;&#x5DE6;&#x5B50;&#x94FE;&#x7684;&#x533A;&#x5757;&#x54C8;&#x5E0C;&#x503C;&#xFF0C;&#x6CA1;&#x6709;&#x65F6;&#x4E3A;&#x7A7A;&#x503C;&#x3002;</li>
+<li>Right Child Hash&#xFF1A;&#x53F3;&#x5B50;&#x94FE;&#x7684;&#x533A;&#x5757;&#x54C8;&#x5E0C;&#x503C;&#xFF0C;&#x6CA1;&#x6709;&#x65F6;&#x4E3A;&#x7A7A;&#x503C;&#x3002;</li>
+<li>Meta Data&#xFF1A;&#x5176;&#x4ED6;&#x7684;&#x533A;&#x5757;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x62EC;&#x65F6;&#x95F4;&#x6233;&#x3001;&#x7B7E;&#x540D;&#x3001;&#x77FF;&#x5DE5;&#x5730;&#x5740;&#x7B49;</li>
+<li>Transactions&#xFF1A;&#x4EA4;&#x6613;&#x5217;&#x8868;</li>
+</ul>
+<p>&#x533A;&#x5757;&#x7684;&#x5927;&#x5C0F;&#x9650;&#x5236;&#x9ED8;&#x8BA4;&#x4E3A;1M(&#x8BE5;&#x503C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#xFF0C;&#x52A8;&#x6001;&#x8C03;&#x6574;)&#x3002;&#x8BE5;&#x503C;&#x53EA;&#x662F;&#x533A;&#x5757;&#x4E2D;&#x4EA4;&#x6613;&#x7684;&#x603B;&#x5927;&#x5C0F;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x533A;&#x5757;&#x5934;&#x4FE1;&#x606F;&#x3002;<br>&#x6BCF;&#x6761;&#x94FE;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x533A;&#x5757;&#x90FD;&#x76F8;&#x540C;&#xFF0C;&#x79F0;&#x5176;&#x4E3A;&#x521B;&#x4E16;&#x533A;&#x5757;&#x3002;<br>&#x521B;&#x4E16;&#x533A;&#x5757;&#x7684;Chain ID&#x4E3A;0&#x3002;  </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="3.3.html" class="navigation navigation-prev " aria-label="Previous page: 链的创建">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.5.html" class="navigation navigation-next " aria-label="Next page: 链间区块关系">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"区块结构","level":"1.2.3.4","depth":3,"next":{"title":"链间区块关系","level":"1.2.3.5","depth":3,"path":"wp/3.5.md","ref":"wp/3.5.md","articles":[]},"previous":{"title":"链的创建","level":"1.2.3.3","depth":3,"path":"wp/3.3.md","ref":"wp/3.3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["accordion","-sharing","chapter-fold","multipart","-livereload","copy-code-button","splitter"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"accordion":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"wp/3.4.md","mtime":"2020-02-22T12:09:49.744Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-25T08:48:05.769Z"},"basePath":"..","book":{"language":"cn"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
