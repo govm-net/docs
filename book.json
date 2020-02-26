@@ -1,0 +1,11 @@
+{
+    "plugins": [
+        "accordion",
+        "-sharing",
+        "chapter-fold",
+        "multipart",
+        "-livereload",
+        "copy-code-button",
+        "splitter"
+    ]
+}
