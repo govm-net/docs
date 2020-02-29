@@ -34,3 +34,4 @@
   * [Smart contract](wp/8.md)
   * [Theoretical data](wp/9.md)
   * [Conclusion](wp/finish.md)
+* [Mine](mine/windows.md)

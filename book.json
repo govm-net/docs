@@ -6,6 +6,7 @@
         "multipart",
         "-livereload",
         "copy-code-button",
-        "splitter"
+        "splitter",
+        "-search"
     ]
 }
