@@ -20,21 +20,22 @@
 
 ## Hardware requirements
 
-1. 64-bit windows system, at least windows7  
+1. Now take windows as an example. Other systems are the same process.  
+2. 64-bit windows system, at least windows7  
     View: Computer / My Computer-> Right-click-> Properties-> System type: 64-bit operating system  
     If it is 32-bit, it is not supported.  
-2. Larger disk space  
+3. Larger disk space  
    blockchain needs to store a large amount of data, so it needs a lot of space, at least 50G  
     upfront, because there are fewer transactions, and less space is required. There may be 1G of new data in the next day.  
     If there is a solid state drive ,will be better  
-3. Network  
+4. Network  
     Software always needs to be networked, and because it needs to synchronize data with other nodes, if the network is too poor, it will affect mining
 
 ## Environment setup
 
 ### golang installation
 
-1. Download address:https://golang.google.cn/dl/  
+1. Download address:https://golang.org/dl/  
 2. Download go1.13.\*.windows-amd64.msi
 3. Direct installation, all default configuration, no need to modify
 
@@ -44,6 +45,7 @@
 2. Click on windows to download  
     ![download](dl_git.png)
 3. After downloading, install directly, all default configuration
+4. Win10 and win2012 suggest to restart the computer
 
 ## Download the source code
 
@@ -65,8 +67,8 @@
 
 10. Compile govm:
 
-    **If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software .**
-    run upgrade.sh or do as follows
+    **If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software.**
+    run upgrade.sh or do as follows in bash
 
     ```bash
     cd ../govm/

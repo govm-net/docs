@@ -7,6 +7,12 @@
         "-livereload",
         "copy-code-button",
         "splitter",
-        "-search"
-    ]
+        "-search",
+        "hide-element"
+    ],
+    "pluginsConfig": {
+        "hide-element": {
+            "elements": [".gitbook-link"]
+        }
+    }
 }
