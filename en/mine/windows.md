@@ -15,6 +15,8 @@
     - [How to transfer](#how-to-transfer)
     - [Token Unit](#token-unit)
     - [Update software](#update-software)
+      - [Update database](#update-database)
+      - [Update govm](#update-govm)
     - [No mine, Why](#no-mine-why)
   - [More information](#more-information)
 
@@ -74,6 +76,7 @@
     cd ../govm/
     go build
     ll govm.exe
+    cp ./conf/conf.json.bak ./conf/conf.json
     ```
 
 11. the govm.exe is generated
@@ -141,8 +144,19 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 
 ### Update software
 
+#### Update database
+
+1. exit govm.exe
+2. Enter database folder
+3. Close the database window(If not exist, ignore)
+4. Run uninstall.sh
+5. Run upgrade.sh
+6. Start database: run install.sh Or run database.exe
+
+#### Update govm
+
 1. Exit the program, make sure there is no govm.exe process in the task manager, and if so, force the process to end
-2. You can directly double-click upgrade.sh to upgrade, or perform the following operations to upgrade
+2. You can directly run upgrade.sh to upgrade, or perform the following operations to upgrade
    * In the govm folder, right-click in the blank space and select "Git Bash Here"  
    * Enter: git pull  
    * If the update fails (error), delete the conflicting files according to the prompt, and perform the previous step again. As shown in the figure below, you need to delete the files listed in the red box, and then execute upgrade.sh  
