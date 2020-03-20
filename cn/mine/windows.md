@@ -50,15 +50,16 @@
 
 ## 下载源码
 
-1. 选择一个磁盘(需要有比较多的可用空间)
-2. 创建一个文件夹(不用中文，路径别太长)
-3. 进入文件夹，空白处点击右键，选择“Git Bash Here"
-4. 输入并回车：git clone https://github.com/lengzhao/database.git
-5. 输入并回车：git clone https://github.com/lengzhao/govm.git
-6. 将开始下载代码
-7. 成功以后，应该会有2个文件夹，database和govm
-8. 代码下载完成后，编译代码
-9. 首先编译database(数据库),执行upgrade.sh或者按照下面操作，确保文件夹下有生成可执行文件database
+1. 下面介绍的是全新更新的方式，数据更新时间较长，也可以直接下载带数据的版本，具体查看后续的章节“带数据版本”
+2. 选择一个磁盘(需要有比较多的可用空间)
+3. 创建一个文件夹(不用中文，路径别太长)
+4. 进入文件夹，空白处点击右键，选择“Git Bash Here"
+5. 输入并回车：git clone https://github.com/lengzhao/database.git
+6. 输入并回车：git clone https://github.com/lengzhao/govm.git
+7. 将开始下载代码
+8. 成功以后，应该会有2个文件夹，database和govm
+9. 代码下载完成后，编译代码
+10. 首先编译database(数据库),执行upgrade.sh或者按照下面操作，确保文件夹下有生成可执行文件database
 
     ```bash
     cd database/
@@ -69,7 +70,7 @@
 
     ![build_db](build_db.png)
 
-10. 编译govm  
+11. 编译govm  
 
     **如果有杀毒软件，请将文件夹设置为可信的，否则app会被杀毒软件清理**  
     直接执行govm文件夹下的upgrade.sh，也可以使用下面的方式
@@ -80,7 +81,7 @@
     ll govm
     ```
 
-11. 结果应该如下，有生成govm(直接查看文件夹下是否有这个可执行文件)
+12. 结果应该如下，有生成govm(直接查看文件夹下是否有这个可执行文件)
 
     ![build_govm](build_govm.png)
 
@@ -167,9 +168,10 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 
 1. 更新数据库前，需要先将govm退出，确保任务管理器里面没有govm.exe的进程，如果有，强制结束进程
 2. 进入数据库文件夹database
-3. 如果是以install方式启动的，需要执行uninstall，否则直接关闭数据库的窗口就行了
+3. 关闭数据库的窗口
 4. 执行upgrade，更新数据库
-5. 执行install，将数据库注册为服务，如果异常，直接执行database.exe
+5. 启动数据库：执行install，将数据库注册为服务，
+   * 如果异常，直接执行database.exe
 
 #### 更新GOVM
 
@@ -195,6 +197,26 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 ### 可能遇到的问题
 
 1. 区块更新一直卡在2019年12月8号：部分win10和win2012会有这个问题，重启电脑就能够解决。
+
+## 带数据版本
+
+1. 需要先确保安装了golang和git
+2. 从官网上下载版本：http://govm.net/dl/
+3. 选择最新的版本下载
+4. 下载到本地后，解压缩(解压后的路径别带空格和中文)
+5. 进入database文件夹，执行upgrade.sh
+6. 进入govm文件夹，执行upgrade.sh
+7. 重新编译智能合约，详细后面的“重新编译智能合约”章节
+8. 防火墙设置，详细看“防火墙设置”章节
+9. 启动程序，详细看“启动程序”章节
+
+## 重新编译智能合约
+
+1. 进入govm/tools/rebuild/，空白处，右键选择“Git Bash Here"，打开Bash
+2. 输入并回车:go build
+3. 输入并回车:cd ../..
+4. 输入并回车:./tools/rebuild/rebuild.exe
+5. 将重新编译智能合约
 
 ## 更多信息
 

@@ -18,6 +18,8 @@
       - [Update database](#update-database)
       - [Update govm](#update-govm)
     - [No mine, Why](#no-mine-why)
+  - [Version with data](#version-with-data)
+  - [Rebuild Smart Contract](#rebuild-smart-contract)
   - [More information](#more-information)
 
 ## Hardware requirements
@@ -51,15 +53,16 @@
 
 ## Download the source code
 
-1. Select a disk (requires more free space)
-2. Create a folder (do not use Chinese, the path is not too long)
-3. Enter the folder, right-click in the blank space, and select "Git Bash Here"
-4. Enter and press enter: git clone https://github.com/lengzhao/database.git
-5. Enter and press enter: git clone https://github.com/lengzhao/govm.git
-6. Will start downloading the code
-7. After success, there should be 2 folders, database and govm
-8. After the code is downloaded, compile the code
-9. First compile the database
+1. The following introduces the new update method. The data update takes a long time. You can also download the version with data directly. For details, see the following chapter "Version with Data".
+2. Select a disk (requires more free space)
+3. Create a folder (do not use Chinese, the path is not too long)
+4. Enter the folder, right-click in the blank space, and select "Git Bash Here"
+5. Enter and press enter: git clone https://github.com/lengzhao/database.git
+6. Enter and press enter: git clone https://github.com/lengzhao/govm.git
+7. Will start downloading the code
+8. After success, there should be 2 folders, database and govm
+9. After the code is downloaded, compile the code
+10. First compile the database
 
     ```bash
     cd database/
@@ -67,7 +70,7 @@
     ll database.exe
     ```
 
-10. Compile govm:
+11. Compile govm:
 
     **If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software.**
     run upgrade.sh or do as follows in bash
@@ -79,7 +82,7 @@
     cp ./conf/conf.json.bak ./conf/conf.json
     ```
 
-11. the govm.exe is generated
+12. the govm.exe is generated
 
 ## Starting
 
@@ -149,9 +152,8 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 1. exit govm.exe
 2. Enter database folder
 3. Close the database window(If not exist, ignore)
-4. Run uninstall.sh
-5. Run upgrade.sh
-6. Start database: run install.sh Or run database.exe
+4. Run upgrade.sh
+5. Start database: run install.sh Or run database.exe
 
 #### Update govm
 
@@ -173,6 +175,26 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 2. If the time in the block page has not changed, check whether there is a node in Node. If not, you need to add it manually
 3. Computer time is wrong, make sure the computer time is the same as universal time
 4. Computer performance problems, in the early stage, it is easy to dig with ordinary computers. With the increase of nodes, the computing power requirements are getting higher and higher, and ordinary computers are difficult to dig.
+
+## Version with data
+
+1. install golang and git
+2. download from http://govm.net/dl/
+3. select the newest version
+4. decompression(the path do not include space and local language)
+5. into database, run upgrade.sh
+6. into govm, run upgrade.sh
+7. rebuild smart contract, [rebuild smart contract](#Rebuild Smart Contract)
+8. **If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software.**
+9. start govm [Starting](#Starting)
+
+## Rebuild Smart Contract
+
+1. into govm/tools/rebuild/, open Bash
+2. in bash,run: go build
+3. run: cd ../..
+4. run: ./tools/rebuild/rebuild.exe
+5. finish rebuild smart contract
 
 ## More information
 
