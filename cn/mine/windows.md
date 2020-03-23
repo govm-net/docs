@@ -143,7 +143,7 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 3. 将显示如下信息  
     ![账户信息](balance.png)  
 4. 其中”Wallet Address“是你的钱包地址，转入、转出都使用这个地址
-5. Balance是钱包上的余额，每次挖矿的奖励约为5000t9，
+5. Balance是钱包上的余额，每次挖矿的奖励约为5tc，
 
 ### 如何转账
 
@@ -156,10 +156,10 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 
 ### 货币单位
 
-1. 单位t0,t3,t6,t9
-2. 默认单位是t9，即10^9\*t0
-3. t3=1000\*t0，t6=1000\*t3，t9=1000\*t6
-4. 每次挖矿的奖励约5000t9
+1. 单位t0,t3,t6,t9,tc
+2. 默认单位是tc，即10^12\*t0
+3. t3=1000\*t0，t6=1000\*t3，t9=1000\*t6，tc=1000\*t9
+4. 每次挖矿的奖励约5tc
 5. 默认单位可以在setting页面上更改
 
 ### 更新软件
@@ -212,11 +212,16 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 
 ## 重新编译智能合约
 
-1. 进入govm/tools/rebuild/，空白处，右键选择“Git Bash Here"，打开Bash
-2. 输入并回车:go build
-3. 输入并回车:cd ../..
-4. 输入并回车:./tools/rebuild/rebuild.exe
-5. 将重新编译智能合约
+1. 进入govm/tools/rebuild/，空白处，右键选择“Git Bash Here"
+2. 在Bash中执行下面的命令
+
+    ```bash
+    go build
+    cd ../..
+    ./tools/rebuild/rebuild.exe
+    ```
+
+3. 将重新编译智能合约
 
 ## 更多信息
 

@@ -126,7 +126,7 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 3. The following message will be displayed  
     ![balance](balance.png)
 4. "Wallet Address" is your wallet address, this address is used for transfer in and out
-5. Balance is the balance on the wallet, and the reward for each mining is about 5000t9.
+5. Balance is the balance on the wallet, and the reward for each mining is about 5tc.
 
 ### How to transfer
 
@@ -139,10 +139,10 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 
 ### Token Unit
 
-1. Units t0,t3,t6,t9
-2. The default unit is t9, which is 10 ^ 9 \* t0
-3. t3 = 1000 \* t0, t6 = 1000 \* t3, t9 = 1000 \* t6
-4. The reward of each mining is about 5000t9
+1. Units t0,t3,t6,t9,tc
+2. The default unit is tc, which is 10 ^ 12 \* t0
+3. t3 = 1000 \* t0, t6 = 1000 \* t3, t9 = 1000 \* t6, tc = 1000 \* t9
+4. The reward of each mining is about 5tc
 5. The default unit can be changed on the "Setting" page
 
 ### Update software
