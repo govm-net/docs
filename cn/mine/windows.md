@@ -246,9 +246,26 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
    2. 可能出现很多人同时注册一个的情况，自己可以选择注册的序号
    3. 如果配置里面没有，可以在中间自己添加一行。
    4. 数值建议设置为1到11的一个数。0或不设置表示随机
+   5. 自动注册的交易将在首页的“转出记录”中
+   6. 修改了lucky_number & cost_of_reg_miner
 
     ```bash
+    {
+    "server_host":"s2s://0.0.0.0:17778,tcp://0.0.0.0:17778",
+    "http_port":9090,
+    "db_addr_type":"tcp",
+    "db_server_addr": "127.0.0.1:17777",
+    "db_server_port": 17777,
+    "chain_of_mine":0,
+    "energy_of_trans":1000000,
+    "wallet_file":"./conf/wallet.key",
+    "cost_of_reg_miner":15000100000000,
+    "do_mine":false,
+    "save_log":true,
     "lucky_number":1,
+    "identifying_code":true,
+    "password":"govm_pwd@2019"
+    }
     ```
 
 ## 多核挖矿
@@ -267,6 +284,20 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
    1. 如果有异常，会直接退出程序
    2. 异常时，可以用Bash运行，查看错误信息
    3. 打开Bash，执行./mining.exe
+8. 如果CPU跑不满，可以修改配置，同时开多个挖矿程序
+   1. 修改mining/conf/conf.json中的db_server_addr
+   2. 修改端口，不能和其他端口冲突的
+   3. 不同的挖矿程序使用不同的端口
+
+```bash
+    "db_addr_type": "tcp",
+    "db_server_addr": "127.0.0.1:12777",
+```
+
+```bash
+    "db_addr_type": "tcp",
+    "db_server_addr": "127.0.0.1:13777",
+```
 
 ## 更多信息
 

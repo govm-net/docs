@@ -216,9 +216,26 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
    2. There may be many people registering one at the same time, you can choose the registration number
    3. If it is not in the configuration, you can add a line in the middle.
    4. It is recommended to set the value to a number from 1 to 11. 0 or not set means random
+   5. Auto-registered transactions will be in the "Send History" on the homepage
+   6. modify lucky_number & cost_of_reg_miner
 
     ```bash
+    {
+    "server_host":"ws://0.0.0.0:17778/govm,s2s://0.0.0.0:17778",
+    "http_port":9090,
+    "db_addr_type":"tcp",
+    "db_server_addr": "127.0.0.1:17777",
+    "db_server_port": 17777,
+    "chain_of_mine":0,
+    "energy_of_trans":1000000,
+    "wallet_file":"./conf/wallet.key",
+    "cost_of_reg_miner":15000100000000,
+    "do_mine":false,
+    "save_log":true,
     "lucky_number":1,
+    "identifying_code":true,
+    "password":"govm_pwd@2019"
+    }
     ```
 
 ## Multi-core mining
@@ -237,6 +254,20 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
    1. If there is an exception, it will exit the program directly
    2. When abnormal, you can run it with Bash to view the error message
    3. Open Bash and execute ./mining.exe
+8. If the CPU is not used full, you can modify the configuration and open multiple mining programs
+   1. Modify db_server_addr in mining*/conf/conf.json
+   2. Modify the port, can not conflict with other ports. 
+   3. Different minings use different ports
+
+    ```bash
+    "db_addr_type": "tcp",
+    "db_server_addr": "127.0.0.1:12777",
+    ```
+
+    ```bash
+    "db_addr_type": "tcp",
+    "db_server_addr": "127.0.0.1:13777",
+    ```
 
 ## More information
 
