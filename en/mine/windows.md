@@ -20,6 +20,8 @@
     - [No mine, Why](#no-mine-why)
   - [Version with data](#version-with-data)
   - [Rebuild Smart Contract](#rebuild-smart-contract)
+  - [Register miner automatically](#register-miner-automatically)
+  - [Multi-core mining](#multi-core-mining)
   - [More information](#more-information)
 
 ## Hardware requirements
@@ -195,6 +197,46 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 3. run: cd ../..
 4. run: ./tools/rebuild/rebuild.exe
 5. finish rebuild smart contract
+
+## Register miner automatically
+
+1. If there is no coins in the account, skip this chapter.
+2. Registered miners will be weighted when calculating block hash power. If they are not registered, it will take more hash power to mine
+3. Registration does not mean that you can successfully mine. Only when mining, the hash power will add weighting, which is easier to be accepted by other nodes and not easily replaced.
+4. The configuration is in govm/conf.json, which can be opened with a text editor
+5. set cost of registered
+   1. It is recommended to set 15tc, the configuration files use t0, so the value should be 15000000000000
+   2. No less than 15tc, configuration 0 means no automatic registration
+   3. Modify the value of cost_of_reg_miner in the configuration file
+   4. More coins have a higher weight, in order to avoid too many people registering and being squeezed out, you can increase the coins
+   5. 15tc is the most cost-effective configuration (if the number of registered people is crowded out, you can increase the amount appropriately)
+   6. You can check the information after successful registration on the "Miner" page
+6. Set the registered serial number (random if not set)
+   1. Automatic registration is registered every 11 blocks (this cannot be changed, it allow more participation)
+   2. There may be many people registering one at the same time, you can choose the registration number
+   3. If it is not in the configuration, you can add a line in the middle.
+   4. It is recommended to set the value to a number from 1 to 11. 0 or not set means random
+
+    ```bash
+    "lucky_number":1,
+    ```
+
+## Multi-core mining
+
+1. The default govm version only supports single CPU core mining (multi-core will cause conflicts in smart contract processing)
+2. Here is a dedicated multi-core mining program (need to install and start govm according to the previous tutorial)
+3. Download the mining program from the official website: http://govm.net/dl/
+4. File name mining *, choose the latest version to download
+5. After downloading it, unzip it and put the 3 folders database, govm and mining in parallel
+6. Change parameters(mining/conf/conf.json):
+   1. Set the number of threads: thread_num
+   2. Can not be set to 0, it is recommended to be consistent with the number of CPU cores
+   3. If the computer has other uses, you can set it as needed
+   4. By default, mine all chains. If you only want to mine one chain, you can set chain_of_mine, 0 means all chains, and non-zero means the id of chains, such as 1 or 2.
+7. After the configuration modification is completed, double-click mining.exe to start the program, the program needs to be open all the time
+   1. If there is an exception, it will exit the program directly
+   2. When abnormal, you can run it with Bash to view the error message
+   3. Open Bash and execute ./mining.exe
 
 ## More information
 
