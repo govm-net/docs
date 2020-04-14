@@ -48,23 +48,17 @@
 6. 然后所有都点击确定，退出配置
 7. win10和win2012建议重启电脑
 
-## 版本
-
-1. 方式1：可以直接下载带数据的版本，具体查看后续的章节[带数据版本](#带数据版本)，该方式可以节省大量的区块同步时间
-2. 方式2：从源码开始，一步步下载编译
-
 ## 下载源码
 
-1. 下面介绍的是全新更新的方式，数据更新时间较长
-2. 选择一个磁盘(需要有比较多的可用空间)
-3. 创建一个文件夹(不用中文，路径别太长)
-4. 进入文件夹，空白处点击右键，选择“Git Bash Here"
-5. 输入并回车：git clone https://github.com/lengzhao/database.git
-6. 输入并回车：git clone https://github.com/lengzhao/govm.git
-7. 将开始下载代码
-8. 成功以后，应该会有2个文件夹，database和govm
-9. 代码下载完成后，编译代码
-10. 首先编译database(数据库),执行upgrade.sh或者按照下面操作，确保文件夹下有生成可执行文件database
+1. 选择一个磁盘(需要有比较多的可用空间)
+2. 创建一个文件夹(不用中文，路径别太长)
+3. 进入文件夹，空白处点击右键，选择“Git Bash Here"
+4. 输入并回车：git clone https://github.com/lengzhao/database.git
+5. 输入并回车：git clone https://github.com/lengzhao/govm.git
+6. 将开始下载代码
+7. 成功以后，应该会有2个文件夹，database和govm
+8. 代码下载完成后，编译代码
+9. 首先编译database(数据库),执行upgrade.sh或者按照下面操作，确保文件夹下有生成可执行文件database
 
     ```bash
     cd database/
@@ -75,7 +69,7 @@
 
     ![build_db](build_db.png)
 
-11. 编译govm  
+10. 编译govm  
 
     **如果有杀毒软件，请将文件夹设置为可信的，否则app会被杀毒软件清理**  
     直接执行govm文件夹下的upgrade.sh，也可以使用下面的方式
@@ -86,7 +80,7 @@
     ll govm
     ```
 
-12. 结果应该如下，有生成govm(直接查看文件夹下是否有这个可执行文件)
+11. 结果应该如下，有生成govm(直接查看文件夹下是否有这个可执行文件)
 
     ![build_govm](build_govm.png)
 
@@ -106,11 +100,22 @@
     ![add](360_add.png)
 7. 选择govm文件夹，然后确认
 
+## 使用备份的数据
+
+1. 该操作可以不执行。如果不执行这一步，将从头开始同步数据，耗时比较长，需要几天时间
+2. 浏览器登陆 http://govm.net/dl/
+3. 下载：database_data_v\*.tar.gz和govm_app_v\*.gz
+4. 下载后，将database_data_v\*.tar.gz文件放入database文件夹，并解压到当前文件
+5. 解压成功后，会在database文件夹里多一个db_dir文件夹，没有表示异常，请确认操作
+6. 将govm_app_v\*.gz放到govm文件夹里，并解压到当前文件夹
+7. 解压成功后，会在govm文件夹里多一个app文件夹，没有表示异常，请确认操作
+8. 进入文件夹govm->tools->rebuild，双击执行rebuild.sh，将重新编译智能合约
+
 ## 启动程序
 
 1. 将数据库注册为系统服务，进入database文件夹，双击install.sh，杀毒软件有可能会有风险提示，需要允许本次操作  
-    ![安装成功](db_install.png)  
    * 如果提示“Access is denied.”，表示没有权限，可以直接执行database.exe启动数据库
+    ![安装成功](db_install.png)  
 2. 启动govm，点击start.sh，程序将启动，并打印版本信息（software version）  
     ![启动信息](start_govm.png)  
 3. 可以使用浏览器，登陆http://localhost:9090
@@ -156,8 +161,12 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 2. 点击Transfer
 3. Peer中填写对方的钱包地址
 4. Amount填写转账金额
-5. 点击Submit提交就可以了
-6. 转账不是实时的，这个交易需要被打包到区块中，才正式生效，所以转账有1-2分钟延迟
+5. 点击Submit提交
+6. 默认有开启验证码，需要在govm的命令行窗口输入验证码，并按下“Enter键”
+
+    ![验证码](identifying_code.png)
+
+7. 转账不是实时的，这个交易需要被打包到区块中，才正式生效，所以转账有1-2分钟延迟
 
 ### 货币单位
 
@@ -199,38 +208,18 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 3. 电脑时间不对，确保电脑时间和北京时间是一致的
 4. 电脑性能问题，在前期，使用普通电脑就很容易挖到，随着节点的增加，算力要求越来越高，普通电脑就很难挖到了
 
-### 可能遇到的问题
-
-1. 区块更新一直卡在2019年12月8号：部分win10和win2012会有这个问题，重启电脑就能够解决。
-
-## 带数据版本
-
-1. 需要先确保安装了golang和git
-2. 从官网上下载版本：http://govm.net/dl/
-3. 选择最新的版本下载
-4. 下载到本地后，解压缩(解压后的路径别带空格和中文)
-5. 进入database文件夹，执行upgrade.sh
-6. 进入govm文件夹，执行upgrade.sh
-7. 重新编译智能合约，详细后面的“重新编译智能合约”章节
-8. 防火墙设置，详细看“防火墙设置”章节
-9. 启动程序，详细看“启动程序”章节
-
 ## 重新编译智能合约
 
 1. 进入govm/tools/rebuild/，空白处，右键选择“Git Bash Here"
-2. 在Bash中执行下面的命令
-
-    ```bash
-    go build
-    cd ../..
-    ./tools/rebuild/rebuild.exe
-    ```
-
+2. 输入并回车"./rebuild.sh"
 3. 将重新编译智能合约
+4. 有显示“result,chain: 1 <nil>”就表示成功了
+
+    ![重新编译智能合约](rebuild.png)
 
 ## 自动注册矿工
 
-1. 如果账户中没有虚拟货币，跳过这个章节。
+1. 如果账户中没有虚拟货币或不想注册，跳过这个章节。
 2. 注册的矿工，计算区块算力的时候，会加权重，如果不注册，将需要花费更多的算力才能挖到
 3. 注册不表示就能够挖到，只是挖到的时候，算力有加成，更容易被其他节点接受，不容易被替换掉。
 4. 配置都在govm/conf.json，可以用文本编辑器打开
@@ -274,7 +263,8 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
 2. 这里提供一个专门的多核挖矿程序（需要按照前面的教程先安装并启动govm）
 3. 从官网下载挖矿程序: http://govm.net/dl/
 4. 文件名mining*，选择最新的版本下载
-5. 下载下来后，解压，将database、govm、mining3个文件夹并列
+5. 下载下来后，解压，将database、govm、mining3个文件夹并列，database和govm是原有的，mining是新的
+   ![minging](mining.png)
 6. 修改参数(mining/conf/conf.json)：
    1. 设置线程数量：thread_num
    2. 不能设置为0，建议跟CPU核的数量一致
@@ -299,10 +289,20 @@ conf文件夹下的**wallet.key**是钱包文件，请备份保存
     "db_server_addr": "127.0.0.1:13777",
 ```
 
+## 开启/关闭验证码
+
+1. 不建议关闭验证码，存在安全隐患
+2. 进入文件夹govm->conf，用文本打开conf.json
+3. 修改identifying_code的值，true为开启，false为关闭
+4. 修改完成后，保存
+5. 关闭并重启govm
+
 ## 更多信息
 
 订阅号  
 ![订阅号](wechat.jpg)
+
+[discord](https://discord.gg/u3wYFkD)
 
 联系方式：  
 ![邮件](email.png)

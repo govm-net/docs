@@ -6,6 +6,7 @@
     - [golang installation](#golang-installation)
     - [Git installation](#git-installation)
   - [Download the source code](#download-the-source-code)
+  - [Use the backed up data](#use-the-backed-up-data)
   - [Starting](#starting)
   - [Save wallet file](#save-wallet-file)
   - [Check](#check)
@@ -18,7 +19,6 @@
       - [Update database](#update-database)
       - [Update govm](#update-govm)
     - [No mine, Why](#no-mine-why)
-  - [Version with data](#version-with-data)
   - [Rebuild Smart Contract](#rebuild-smart-contract)
   - [Register miner automatically](#register-miner-automatically)
   - [Multi-core mining](#multi-core-mining)
@@ -55,16 +55,15 @@
 
 ## Download the source code
 
-1. The following introduces the new update method. The data update takes a long time. You can also download the version with data directly. For details, see the following chapter "Version with Data".
-2. Select a disk (requires more free space)
-3. Create a folder (do not use Chinese, the path is not too long)
-4. Enter the folder, right-click in the blank space, and select "Git Bash Here"
-5. Enter and press enter: git clone https://github.com/lengzhao/database.git
-6. Enter and press enter: git clone https://github.com/lengzhao/govm.git
-7. Will start downloading the code
-8. After success, there should be 2 folders, database and govm
-9. After the code is downloaded, compile the code
-10. First compile the database
+1. Select a disk (requires more free space)
+2. Create a folder (do not use Chinese, the path is not too long)
+3. Enter the folder, right-click in the blank space, and select "Git Bash Here"
+4. Enter and press enter: git clone https://github.com/lengzhao/database.git
+5. Enter and press enter: git clone https://github.com/lengzhao/govm.git
+6. Will start downloading the code
+7. After success, there should be 2 folders, database and govm
+8. After the code is downloaded, compile the code
+9. First compile the database
 
     ```bash
     cd database/
@@ -72,7 +71,7 @@
     ll database.exe
     ```
 
-11. Compile govm:
+10. Compile govm:
 
     **If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software.**
     run upgrade.sh or do as follows in bash
@@ -84,7 +83,18 @@
     cp ./conf/conf.json.bak ./conf/conf.json
     ```
 
-12. the govm.exe is generated
+11. the govm.exe is generated
+
+## Use the backed up data
+
+1. This step may not be executed. If this step is not performed, data will be synchronized from the beginning, which will take several days
+2. Browser open http://govm.net/dl/
+3. Download: database_data_v\*.tar.gz and govm_app_v\*.gz
+4. After downloading, put the database_data_v\*.tar.gz file into the database folder and decompress it to the current file(database folder)
+5. After the decompression is successful, there will be an db_dir folder in the database folder
+6. put the govm_app_v\*.gz file into the govm folder and decompress it to the current file(govm folder)
+7. After the decompression is successful, there will be an app folder in the govm folder
+8. Go to the folder govm-> tools-> rebuild, double click to execute rebuild.sh, the smart contract will be recompiled
 
 ## Starting
 
@@ -137,7 +147,11 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 3. Fill in the peer's wallet address in "Peer"
 4. "Amount" fill in the transfer amount
 5. Click Submit
-6. The transfer is not real-time. This transaction needs to be packaged into a block before it officially takes effect.
+6. The identifying code is enabled by default, you need to enter the identifying code in the govm command line window and press "Enter"
+
+    ![identifying_code](identifying_code.png)
+
+7. The transfer is not real-time. This transaction needs to be packaged into a block before it officially takes effect.
 
 ### Token Unit
 
@@ -178,25 +192,14 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 3. Computer time is wrong, make sure the computer time is the same as universal time
 4. Computer performance problems, in the early stage, it is easy to dig with ordinary computers. With the increase of nodes, the computing power requirements are getting higher and higher, and ordinary computers are difficult to dig.
 
-## Version with data
-
-1. install golang and git
-2. download from http://govm.net/dl/
-3. select the newest version
-4. decompression(the path do not include space and local language)
-5. into database, run upgrade.sh
-6. into govm, run upgrade.sh
-7. rebuild smart contract, [rebuild smart contract](#Rebuild Smart Contract)
-8. **If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software.**
-9. start govm [Starting](#Starting)
-
 ## Rebuild Smart Contract
 
 1. into govm/tools/rebuild/, open Bash
-2. in bash,run: go build
-3. run: cd ../..
-4. run: ./tools/rebuild/rebuild.exe
-5. finish rebuild smart contract
+2. in bash,run"./rebuild.sh"
+3. finish rebuild smart contract
+4. show "result,chain: 1 <nil>" on success
+
+    ![rebuild](rebuild.png)
 
 ## Register miner automatically
 
@@ -244,7 +247,8 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 2. Here is a dedicated multi-core mining program (need to install and start govm according to the previous tutorial)
 3. Download the mining program from the official website: http://govm.net/dl/
 4. File name mining *, choose the latest version to download
-5. After downloading it, unzip it and put the 3 folders database, govm and mining in parallel
+5. After downloading it, unzip it and put the 3 folders database, govm and mining in parallel. Only mining is new, others are original
+   ![minging](mining.png)
 6. Change parameters(mining/conf/conf.json):
    1. Set the number of threads: thread_num
    2. Can not be set to 0, it is recommended to be consistent with the number of CPU cores
@@ -272,4 +276,7 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 ## More information
 
 contact details:  
+
+[discord](https://discord.gg/u3wYFkD)
+
 ![email](email.png)
