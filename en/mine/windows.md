@@ -80,7 +80,7 @@
     cd ../govm/
     go build
     ll govm.exe
-    cp ./conf/conf.json.bak ./conf/conf.json
+    cp ./conf/conf.bak.json ./conf/conf.json
     ```
 
 11. the govm.exe is generated
@@ -88,13 +88,17 @@
 ## Use the backed up data
 
 1. This step may not be executed. If this step is not performed, data will be synchronized from the beginning, which will take several days
-2. Browser open http://govm.net/dl/
-3. Download: database_data_v\*.tar.gz and govm_app_v\*.gz
-4. After downloading, put the database_data_v\*.tar.gz file into the database folder and decompress it to the current file(database folder)
-5. After the decompression is successful, there will be an db_dir folder in the database folder
-6. put the govm_app_v\*.gz file into the govm folder and decompress it to the current file(govm folder)
-7. After the decompression is successful, there will be an app folder in the govm folder
-8. Go to the folder govm-> tools-> rebuild, double click to execute rebuild.sh, the smart contract will be recompiled
+2. if already started
+   * Close govm and database
+   * run database/uninstall.sh
+   * remove database/db_dir
+3. Browser open http://govm.net/dl/
+4. Download: database_data_v\*.tar.gz and govm_app_v\*.gz
+5. After downloading, put the database_data_v\*.tar.gz file into the database folder and decompress it to the current file(database folder)
+6. After the decompression is successful, there will be an db_dir folder in the database folder
+7. put the govm_app_v\*.gz file into the govm folder and decompress it to the current file(govm folder)
+8. After the decompression is successful, there will be an app folder in the govm folder
+9. Go to the folder govm-> tools-> rebuild, double click to execute rebuild.sh, the smart contract will be recompiled
 
 ## Starting
 

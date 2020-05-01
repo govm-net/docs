@@ -64,7 +64,7 @@
     cd database/
     go build
     ll database
-    cp ./conf/conf.json.bak ./conf/conf.json
+    cp ./conf/conf.bak.json ./conf/conf.json
     ```
 
     ![build_db](build_db.png)
@@ -103,13 +103,16 @@
 ## 使用备份的数据
 
 1. 该操作可以不执行。如果不执行这一步，将从头开始同步数据，耗时比较长，需要几天时间
-2. 浏览器登陆 http://govm.net/dl/
-3. 下载：database_data_v\*.tar.gz和govm_app_v\*.gz
-4. 下载后，将database_data_v\*.tar.gz文件放入database文件夹，并解压到当前文件
-5. 解压成功后，会在database文件夹里多一个db_dir文件夹，没有表示异常，请确认操作
-6. 将govm_app_v\*.gz放到govm文件夹里，并解压到当前文件夹
-7. 解压成功后，会在govm文件夹里多一个app文件夹，没有表示异常，请确认操作
-8. 进入文件夹govm->tools->rebuild，双击执行rebuild.sh，将重新编译智能合约
+2. 如果govm已经启动，将其退出(关闭窗口)
+3. 如果database已经启动，将其退出(关闭窗口和执行database/uninstall.sh)
+4. 如果database文件夹里有db_dir，请将其删除
+5. 浏览器登陆 http://govm.net/dl/
+6. 下载：database_data_v\*.tar.gz和govm_app_v\*.gz
+7. 下载后，将database_data_v\*.tar.gz文件放入database文件夹，并解压到当前文件
+8. 解压成功后，会在database文件夹里多一个db_dir文件夹，没有表示异常，请确认操作
+9. 将govm_app_v\*.gz放到govm文件夹里，并解压到当前文件夹
+10. 解压成功后，会在govm文件夹里多一个app文件夹，没有表示异常，请确认操作
+11. 进入文件夹govm->tools->rebuild，双击执行rebuild.sh，将重新编译智能合约
 
 ## 启动程序
 
