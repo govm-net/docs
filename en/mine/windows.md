@@ -6,6 +6,7 @@
     - [golang installation](#golang-installation)
     - [Git installation](#git-installation)
   - [Download the source code](#download-the-source-code)
+  - [Use the backed up data](#use-the-backed-up-data)
   - [Starting](#starting)
   - [Save wallet file](#save-wallet-file)
   - [Check](#check)
@@ -15,26 +16,32 @@
     - [How to transfer](#how-to-transfer)
     - [Token Unit](#token-unit)
     - [Update software](#update-software)
+      - [Update database](#update-database)
+      - [Update govm](#update-govm)
     - [No mine, Why](#no-mine-why)
+  - [Rebuild Smart Contract](#rebuild-smart-contract)
+  - [Register miner automatically](#register-miner-automatically)
+  - [Multi-core mining](#multi-core-mining)
   - [More information](#more-information)
 
 ## Hardware requirements
 
-1. 64-bit windows system, at least windows7  
+1. Now take windows as an example. Other systems are the same process.  
+2. 64-bit windows system, at least windows7  
     View: Computer / My Computer-> Right-click-> Properties-> System type: 64-bit operating system  
     If it is 32-bit, it is not supported.  
-2. Larger disk space  
+3. Larger disk space  
    blockchain needs to store a large amount of data, so it needs a lot of space, at least 50G  
     upfront, because there are fewer transactions, and less space is required. There may be 1G of new data in the next day.  
     If there is a solid state drive ,will be better  
-3. Network  
+4. Network  
     Software always needs to be networked, and because it needs to synchronize data with other nodes, if the network is too poor, it will affect mining
 
 ## Environment setup
 
 ### golang installation
 
-1. Download address:https://golang.google.cn/dl/  
+1. Download address:https://golang.org/dl/  
 2. Download go1.13.\*.windows-amd64.msi
 3. Direct installation, all default configuration, no need to modify
 
@@ -44,6 +51,7 @@
 2. Click on windows to download  
     ![download](dl_git.png)
 3. After downloading, install directly, all default configuration
+4. Win10 and win2012 suggest to restart the computer
 
 ## Download the source code
 
@@ -65,16 +73,32 @@
 
 10. Compile govm:
 
-    **If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software .**
-    run upgrade.sh or do as follows
+    **If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software.**
+    run upgrade.sh or do as follows in bash
 
     ```bash
     cd ../govm/
     go build
     ll govm.exe
+    cp ./conf/conf.bak.json ./conf/conf.json
     ```
 
 11. the govm.exe is generated
+
+## Use the backed up data
+
+1. This step may not be executed. If this step is not performed, data will be synchronized from the beginning, which will take several days
+2. if already started
+   * Close govm and database
+   * run database/uninstall.sh
+   * remove database/db_dir
+3. Browser open http://govm.net/dl/
+4. Download: database_data_v\*.tar.gz and govm_app_v\*.gz
+5. After downloading, put the database_data_v\*.tar.gz file into the database folder and decompress it to the current file(database folder)
+6. After the decompression is successful, there will be an db_dir folder in the database folder
+7. put the govm_app_v\*.gz file into the govm folder and decompress it to the current file(govm folder)
+8. After the decompression is successful, there will be an app folder in the govm folder
+9. Go to the folder govm-> tools-> rebuild, double click to execute rebuild.sh, the smart contract will be recompiled
 
 ## Starting
 
@@ -118,7 +142,7 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 3. The following message will be displayed  
     ![balance](balance.png)
 4. "Wallet Address" is your wallet address, this address is used for transfer in and out
-5. Balance is the balance on the wallet, and the reward for each mining is about 5000t9.
+5. Balance is the balance on the wallet, and the reward for each mining is about 5tc.
 
 ### How to transfer
 
@@ -127,20 +151,34 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 3. Fill in the peer's wallet address in "Peer"
 4. "Amount" fill in the transfer amount
 5. Click Submit
-6. The transfer is not real-time. This transaction needs to be packaged into a block before it officially takes effect.
+6. The identifying code is enabled by default, you need to enter the identifying code in the govm command line window and press "Enter"
+
+    ![identifying_code](identifying_code.png)
+
+7. The transfer is not real-time. This transaction needs to be packaged into a block before it officially takes effect.
 
 ### Token Unit
 
-1. Units t0,t3,t6,t9
-2. The default unit is t9, which is 10 ^ 9 \* t0
-3. t3 = 1000 \* t0, t6 = 1000 \* t3, t9 = 1000 \* t6
-4. The reward of each mining is about 5000t9
+1. Units t0,t3,t6,t9,tc
+2. The default unit is tc, which is 10 ^ 12 \* t0
+3. t3 = 1000 \* t0, t6 = 1000 \* t3, t9 = 1000 \* t6, tc = 1000 \* t9
+4. The reward of each mining is about 5tc
 5. The default unit can be changed on the "Setting" page
 
 ### Update software
 
+#### Update database
+
+1. exit govm.exe
+2. Enter database folder
+3. Close the database window(If not exist, ignore)
+4. Run upgrade.sh
+5. Start database: run install.sh Or run database.exe
+
+#### Update govm
+
 1. Exit the program, make sure there is no govm.exe process in the task manager, and if so, force the process to end
-2. You can directly double-click upgrade.sh to upgrade, or perform the following operations to upgrade
+2. You can directly run upgrade.sh to upgrade, or perform the following operations to upgrade
    * In the govm folder, right-click in the blank space and select "Git Bash Here"  
    * Enter: git pull  
    * If the update fails (error), delete the conflicting files according to the prompt, and perform the previous step again. As shown in the figure below, you need to delete the files listed in the red box, and then execute upgrade.sh  
@@ -158,7 +196,91 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 3. Computer time is wrong, make sure the computer time is the same as universal time
 4. Computer performance problems, in the early stage, it is easy to dig with ordinary computers. With the increase of nodes, the computing power requirements are getting higher and higher, and ordinary computers are difficult to dig.
 
+## Rebuild Smart Contract
+
+1. into govm/tools/rebuild/, open Bash
+2. in bash,run"./rebuild.sh"
+3. finish rebuild smart contract
+4. show "result,chain: 1 <nil>" on success
+
+    ![rebuild](rebuild.png)
+
+## Register miner automatically
+
+1. If there is no coins in the account, skip this chapter.
+2. Registered miners will be weighted when calculating block hash power. If they are not registered, it will take more hash power to mine
+3. Registration does not mean that you can successfully mine. Only when mining, the hash power will add weighting, which is easier to be accepted by other nodes and not easily replaced.
+4. The configuration is in govm/conf.json, which can be opened with a text editor
+5. set cost of registered
+   1. It is recommended to set 15tc, the configuration files use t0, so the value should be 15000000000000
+   2. No less than 15tc, configuration 0 means no automatic registration
+   3. Modify the value of cost_of_reg_miner in the configuration file
+   4. More coins have a higher weight, in order to avoid too many people registering and being squeezed out, you can increase the coins
+   5. 15tc is the most cost-effective configuration (if the number of registered people is crowded out, you can increase the amount appropriately)
+   6. You can check the information after successful registration on the "Miner" page
+6. Set the registered serial number (random if not set)
+   1. Automatic registration is registered every 11 blocks (this cannot be changed, it allow more participation)
+   2. There may be many people registering one at the same time, you can choose the registration number
+   3. If it is not in the configuration, you can add a line in the middle.
+   4. It is recommended to set the value to a number from 1 to 11. 0 or not set means random
+   5. Auto-registered transactions will be in the "Send History" on the homepage
+   6. modify lucky_number & cost_of_reg_miner
+
+    ```bash
+    {
+    "server_host":"ws://0.0.0.0:17778/govm,s2s://0.0.0.0:17778",
+    "http_port":9090,
+    "db_addr_type":"tcp",
+    "db_server_addr": "127.0.0.1:17777",
+    "db_server_port": 17777,
+    "chain_of_mine":0,
+    "energy_of_trans":1000000,
+    "wallet_file":"./conf/wallet.key",
+    "cost_of_reg_miner":15000100000000,
+    "do_mine":false,
+    "save_log":true,
+    "lucky_number":1,
+    "identifying_code":true,
+    "password":"govm_pwd@2019"
+    }
+    ```
+
+## Multi-core mining
+
+1. The default govm version only supports single CPU core mining (multi-core will cause conflicts in smart contract processing)
+2. Here is a dedicated multi-core mining program (need to install and start govm according to the previous tutorial)
+3. Download the mining program from the official website: http://govm.net/dl/
+4. File name mining *, choose the latest version to download
+5. After downloading it, unzip it and put the 3 folders database, govm and mining in parallel. Only mining is new, others are original
+   ![minging](mining.png)
+6. Change parameters(mining/conf/conf.json):
+   1. Set the number of threads: thread_num
+   2. Can not be set to 0, it is recommended to be consistent with the number of CPU cores
+   3. If the computer has other uses, you can set it as needed
+   4. By default, mine all chains. If you only want to mine one chain, you can set chain_of_mine, 0 means all chains, and non-zero means the id of chains, such as 1 or 2.
+7. After the configuration modification is completed, double-click mining.exe to start the program, the program needs to be open all the time
+   1. If there is an exception, it will exit the program directly
+   2. When abnormal, you can run it with Bash to view the error message
+   3. Open Bash and execute ./mining.exe
+8. If the CPU is not used full, you can modify the configuration and open multiple mining programs
+   1. Modify db_server_addr in mining*/conf/conf.json
+   2. Modify the port, can not conflict with other ports. 
+   3. Different minings use different ports
+
+    ```bash
+    "db_addr_type": "tcp",
+    "db_server_addr": "127.0.0.1:12777",
+    ```
+
+    ```bash
+    "db_addr_type": "tcp",
+    "db_server_addr": "127.0.0.1:13777",
+    ```
+
 ## More information
 
 contact details:  
+
+[discord](https://discord.gg/u3wYFkD)
+
 ![email](email.png)

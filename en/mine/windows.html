@@ -626,6 +626,7 @@
 </ul>
 </li>
 <li><a href="#download-the-source-code">Download the source code</a></li>
+<li><a href="#use-the-backed-up-data">Use the backed up data</a></li>
 <li><a href="#starting">Starting</a></li>
 <li><a href="#save-wallet-file">Save wallet file</a></li>
 <li><a href="#check">Check</a><ul>
@@ -634,16 +635,24 @@
 <li><a href="#view-your-token">View your token</a></li>
 <li><a href="#how-to-transfer">How to transfer</a></li>
 <li><a href="#token-unit">Token Unit</a></li>
-<li><a href="#update-software">Update software</a></li>
+<li><a href="#update-software">Update software</a><ul>
+<li><a href="#update-database">Update database</a></li>
+<li><a href="#update-govm">Update govm</a></li>
+</ul>
+</li>
 <li><a href="#no-mine-why">No mine, Why</a></li>
 </ul>
 </li>
+<li><a href="#rebuild-smart-contract">Rebuild Smart Contract</a></li>
+<li><a href="#register-miner-automatically">Register miner automatically</a></li>
+<li><a href="#multi-core-mining">Multi-core mining</a></li>
 <li><a href="#more-information">More information</a></li>
 </ul>
 </li>
 </ul>
 <h2 id="hardware-requirements">Hardware requirements</h2>
 <ol>
+<li>Now take windows as an example. Other systems are the same process.  </li>
 <li>64-bit windows system, at least windows7<br> View: Computer / My Computer-&gt; Right-click-&gt; Properties-&gt; System type: 64-bit operating system<br> If it is 32-bit, it is not supported.  </li>
 <li>Larger disk space<br>blockchain needs to store a large amount of data, so it needs a lot of space, at least 50G<br> upfront, because there are fewer transactions, and less space is required. There may be 1G of new data in the next day.<br> If there is a solid state drive ,will be better  </li>
 <li>Network<br> Software always needs to be networked, and because it needs to synchronize data with other nodes, if the network is too poor, it will affect mining</li>
@@ -651,7 +660,7 @@
 <h2 id="environment-setup">Environment setup</h2>
 <h3 id="golang-installation">golang installation</h3>
 <ol>
-<li>Download address:<a href="https://golang.google.cn/dl/" target="_blank">https://golang.google.cn/dl/</a>  </li>
+<li>Download address:<a href="https://golang.org/dl/" target="_blank">https://golang.org/dl/</a>  </li>
 <li>Download go1.13.*.windows-amd64.msi</li>
 <li>Direct installation, all default configuration, no need to modify</li>
 </ol>
@@ -660,6 +669,7 @@
 <li>Download address: <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a></li>
 <li>Click on windows to download<br> <img src="dl_git.png" alt="download"></li>
 <li>After downloading, install directly, all default configuration</li>
+<li>Win10 and win2012 suggest to restart the computer</li>
 </ol>
 <h2 id="download-the-source-code">Download the source code</h2>
 <ol>
@@ -678,15 +688,33 @@
 </code></pre>
 </li>
 <li><p>Compile govm:</p>
-<p><strong>If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software .</strong>
-run upgrade.sh or do as follows</p>
+<p><strong>If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software.</strong>
+run upgrade.sh or do as follows in bash</p>
 <pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ../govm/
 go build
 ll govm.exe
+cp ./conf/conf.bak.json ./conf/conf.json
 </code></pre>
 </li>
 <li><p>the govm.exe is generated</p>
 </li>
+</ol>
+<h2 id="use-the-backed-up-data">Use the backed up data</h2>
+<ol>
+<li>This step may not be executed. If this step is not performed, data will be synchronized from the beginning, which will take several days</li>
+<li>if already started<ul>
+<li>Close govm and database</li>
+<li>run database/uninstall.sh</li>
+<li>remove database/db_dir</li>
+</ul>
+</li>
+<li>Browser open <a href="http://govm.net/dl/" target="_blank">http://govm.net/dl/</a></li>
+<li>Download: database_data_v*.tar.gz and govm_app_v*.gz</li>
+<li>After downloading, put the database_data_v*.tar.gz file into the database folder and decompress it to the current file(database folder)</li>
+<li>After the decompression is successful, there will be an db_dir folder in the database folder</li>
+<li>put the govm_app_v*.gz file into the govm folder and decompress it to the current file(govm folder)</li>
+<li>After the decompression is successful, there will be an app folder in the govm folder</li>
+<li>Go to the folder govm-&gt; tools-&gt; rebuild, double click to execute rebuild.sh, the smart contract will be recompiled</li>
 </ol>
 <h2 id="starting">Starting</h2>
 <ol>
@@ -721,7 +749,7 @@ ll govm.exe
 <li>If already open, click Home</li>
 <li>The following message will be displayed<br> <img src="balance.png" alt="balance"></li>
 <li>&quot;Wallet Address&quot; is your wallet address, this address is used for transfer in and out</li>
-<li>Balance is the balance on the wallet, and the reward for each mining is about 5000t9.</li>
+<li>Balance is the balance on the wallet, and the reward for each mining is about 5tc.</li>
 </ol>
 <h3 id="how-to-transfer">How to transfer</h3>
 <ol>
@@ -730,20 +758,33 @@ ll govm.exe
 <li>Fill in the peer&apos;s wallet address in &quot;Peer&quot;</li>
 <li>&quot;Amount&quot; fill in the transfer amount</li>
 <li>Click Submit</li>
-<li>The transfer is not real-time. This transaction needs to be packaged into a block before it officially takes effect.</li>
+<li><p>The identifying code is enabled by default, you need to enter the identifying code in the govm command line window and press &quot;Enter&quot;</p>
+<p> <img src="identifying_code.png" alt="identifying_code"></p>
+</li>
+<li><p>The transfer is not real-time. This transaction needs to be packaged into a block before it officially takes effect.</p>
+</li>
 </ol>
 <h3 id="token-unit">Token Unit</h3>
 <ol>
-<li>Units t0,t3,t6,t9</li>
-<li>The default unit is t9, which is 10 ^ 9 * t0</li>
-<li>t3 = 1000 * t0, t6 = 1000 * t3, t9 = 1000 * t6</li>
-<li>The reward of each mining is about 5000t9</li>
+<li>Units t0,t3,t6,t9,tc</li>
+<li>The default unit is tc, which is 10 ^ 12 * t0</li>
+<li>t3 = 1000 * t0, t6 = 1000 * t3, t9 = 1000 * t6, tc = 1000 * t9</li>
+<li>The reward of each mining is about 5tc</li>
 <li>The default unit can be changed on the &quot;Setting&quot; page</li>
 </ol>
 <h3 id="update-software">Update software</h3>
+<h4 id="update-database">Update database</h4>
+<ol>
+<li>exit govm.exe</li>
+<li>Enter database folder</li>
+<li>Close the database window(If not exist, ignore)</li>
+<li>Run upgrade.sh</li>
+<li>Start database: run install.sh Or run database.exe</li>
+</ol>
+<h4 id="update-govm">Update govm</h4>
 <ol>
 <li>Exit the program, make sure there is no govm.exe process in the task manager, and if so, force the process to end</li>
-<li><p>You can directly double-click upgrade.sh to upgrade, or perform the following operations to upgrade</p>
+<li><p>You can directly run upgrade.sh to upgrade, or perform the following operations to upgrade</p>
 <ul>
 <li>In the govm folder, right-click in the blank space and select &quot;Git Bash Here&quot;  </li>
 <li>Enter: git pull  </li>
@@ -764,8 +805,99 @@ ll govm.exe
 <li>Computer time is wrong, make sure the computer time is the same as universal time</li>
 <li>Computer performance problems, in the early stage, it is easy to dig with ordinary computers. With the increase of nodes, the computing power requirements are getting higher and higher, and ordinary computers are difficult to dig.</li>
 </ol>
+<h2 id="rebuild-smart-contract">Rebuild Smart Contract</h2>
+<ol>
+<li>into govm/tools/rebuild/, open Bash</li>
+<li>in bash,run&quot;./rebuild.sh&quot;</li>
+<li>finish rebuild smart contract</li>
+<li><p>show &quot;result,chain: 1 <nil>&quot; on success</nil></p>
+<p> <img src="rebuild.png" alt="rebuild"></p>
+</li>
+</ol>
+<h2 id="register-miner-automatically">Register miner automatically</h2>
+<ol>
+<li>If there is no coins in the account, skip this chapter.</li>
+<li>Registered miners will be weighted when calculating block hash power. If they are not registered, it will take more hash power to mine</li>
+<li>Registration does not mean that you can successfully mine. Only when mining, the hash power will add weighting, which is easier to be accepted by other nodes and not easily replaced.</li>
+<li>The configuration is in govm/conf.json, which can be opened with a text editor</li>
+<li>set cost of registered<ol>
+<li>It is recommended to set 15tc, the configuration files use t0, so the value should be 15000000000000</li>
+<li>No less than 15tc, configuration 0 means no automatic registration</li>
+<li>Modify the value of cost_of_reg_miner in the configuration file</li>
+<li>More coins have a higher weight, in order to avoid too many people registering and being squeezed out, you can increase the coins</li>
+<li>15tc is the most cost-effective configuration (if the number of registered people is crowded out, you can increase the amount appropriately)</li>
+<li>You can check the information after successful registration on the &quot;Miner&quot; page</li>
+</ol>
+</li>
+<li><p>Set the registered serial number (random if not set)</p>
+<ol>
+<li>Automatic registration is registered every 11 blocks (this cannot be changed, it allow more participation)</li>
+<li>There may be many people registering one at the same time, you can choose the registration number</li>
+<li>If it is not in the configuration, you can add a line in the middle.</li>
+<li>It is recommended to set the value to a number from 1 to 11. 0 or not set means random</li>
+<li>Auto-registered transactions will be in the &quot;Send History&quot; on the homepage</li>
+<li><p>modify lucky_number &amp; cost_of_reg_miner</p>
+<pre><code class="lang-bash">{
+<span class="hljs-string">&quot;server_host&quot;</span>:<span class="hljs-string">&quot;ws://0.0.0.0:17778/govm,s2s://0.0.0.0:17778&quot;</span>,
+<span class="hljs-string">&quot;http_port&quot;</span>:9090,
+<span class="hljs-string">&quot;db_addr_type&quot;</span>:<span class="hljs-string">&quot;tcp&quot;</span>,
+<span class="hljs-string">&quot;db_server_addr&quot;</span>: <span class="hljs-string">&quot;127.0.0.1:17777&quot;</span>,
+<span class="hljs-string">&quot;db_server_port&quot;</span>: 17777,
+<span class="hljs-string">&quot;chain_of_mine&quot;</span>:0,
+<span class="hljs-string">&quot;energy_of_trans&quot;</span>:1000000,
+<span class="hljs-string">&quot;wallet_file&quot;</span>:<span class="hljs-string">&quot;./conf/wallet.key&quot;</span>,
+<span class="hljs-string">&quot;cost_of_reg_miner&quot;</span>:15000100000000,
+<span class="hljs-string">&quot;do_mine&quot;</span>:<span class="hljs-literal">false</span>,
+<span class="hljs-string">&quot;save_log&quot;</span>:<span class="hljs-literal">true</span>,
+<span class="hljs-string">&quot;lucky_number&quot;</span>:1,
+<span class="hljs-string">&quot;identifying_code&quot;</span>:<span class="hljs-literal">true</span>,
+<span class="hljs-string">&quot;password&quot;</span>:<span class="hljs-string">&quot;govm_pwd@2019&quot;</span>
+}
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="multi-core-mining">Multi-core mining</h2>
+<ol>
+<li>The default govm version only supports single CPU core mining (multi-core will cause conflicts in smart contract processing)</li>
+<li>Here is a dedicated multi-core mining program (need to install and start govm according to the previous tutorial)</li>
+<li>Download the mining program from the official website: <a href="http://govm.net/dl/" target="_blank">http://govm.net/dl/</a></li>
+<li>File name mining *, choose the latest version to download</li>
+<li>After downloading it, unzip it and put the 3 folders database, govm and mining in parallel. Only mining is new, others are original
+<img src="mining.png" alt="minging"></li>
+<li>Change parameters(mining/conf/conf.json):<ol>
+<li>Set the number of threads: thread_num</li>
+<li>Can not be set to 0, it is recommended to be consistent with the number of CPU cores</li>
+<li>If the computer has other uses, you can set it as needed</li>
+<li>By default, mine all chains. If you only want to mine one chain, you can set chain_of_mine, 0 means all chains, and non-zero means the id of chains, such as 1 or 2.</li>
+</ol>
+</li>
+<li>After the configuration modification is completed, double-click mining.exe to start the program, the program needs to be open all the time<ol>
+<li>If there is an exception, it will exit the program directly</li>
+<li>When abnormal, you can run it with Bash to view the error message</li>
+<li>Open Bash and execute ./mining.exe</li>
+</ol>
+</li>
+<li><p>If the CPU is not used full, you can modify the configuration and open multiple mining programs</p>
+<ol>
+<li>Modify db_server_addr in mining*/conf/conf.json</li>
+<li>Modify the port, can not conflict with other ports. </li>
+<li><p>Different minings use different ports</p>
+<pre><code class="lang-bash"><span class="hljs-string">&quot;db_addr_type&quot;</span>: <span class="hljs-string">&quot;tcp&quot;</span>,
+<span class="hljs-string">&quot;db_server_addr&quot;</span>: <span class="hljs-string">&quot;127.0.0.1:12777&quot;</span>,
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-string">&quot;db_addr_type&quot;</span>: <span class="hljs-string">&quot;tcp&quot;</span>,
+<span class="hljs-string">&quot;db_server_addr&quot;</span>: <span class="hljs-string">&quot;127.0.0.1:13777&quot;</span>,
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
 <h2 id="more-information">More information</h2>
-<p>contact details:<br><img src="email.png" alt="email"></p>
+<p>contact details:  </p>
+<p><a href="https://discord.gg/u3wYFkD" target="_blank">discord</a></p>
+<p><img src="email.png" alt="email"></p>
 
                                 
                                 </section>
@@ -789,7 +921,7 @@ ll govm.exe
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Mine","level":"1.3","depth":1,"previous":{"title":"Conclusion","level":"1.2.10","depth":2,"path":"wp/finish.md","ref":"wp/finish.md","articles":[]},"dir":"ltr"},"config":{"plugins":["accordion","-sharing","chapter-fold","multipart","-livereload","copy-code-button","splitter","-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"accordion":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"mine/windows.md","mtime":"2020-02-29T11:45:06.863Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T11:47:38.222Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Mine","level":"1.3","depth":1,"previous":{"title":"Conclusion","level":"1.2.10","depth":2,"path":"wp/finish.md","ref":"wp/finish.md","articles":[]},"dir":"ltr"},"config":{"plugins":["accordion","-sharing","chapter-fold","multipart","-livereload","copy-code-button","splitter","-search","hide-element"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"accordion":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"mine/windows.md","mtime":"2020-05-01T12:57:48.986Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-01T00:00:00.000Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -812,6 +944,10 @@ ll govm.exe
     
         
         <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
         
     
         
