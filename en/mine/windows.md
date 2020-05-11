@@ -20,7 +20,6 @@
       - [Update govm](#update-govm)
     - [No mine, Why](#no-mine-why)
   - [Rebuild Smart Contract](#rebuild-smart-contract)
-  - [Register miner automatically](#register-miner-automatically)
   - [Multi-core mining](#multi-core-mining)
   - [More information](#more-information)
 
@@ -142,7 +141,7 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 3. The following message will be displayed  
     ![balance](balance.png)
 4. "Wallet Address" is your wallet address, this address is used for transfer in and out
-5. Balance is the balance on the wallet, and the reward for each mining is about 5tc.
+5. Balance is the balance on the wallet, and the reward for each mining is about 5t9.
 
 ### How to transfer
 
@@ -160,9 +159,9 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 ### Token Unit
 
 1. Units t0,t3,t6,t9,tc
-2. The default unit is tc, which is 10 ^ 12 \* t0
+2. The default unit is t9
 3. t3 = 1000 \* t0, t6 = 1000 \* t3, t9 = 1000 \* t6, tc = 1000 \* t9
-4. The reward of each mining is about 5tc
+4. The reward of each mining is about 5t9, DPOS 5t9, team 1t9
 5. The default unit can be changed on the "Setting" page
 
 ### Update software
@@ -205,46 +204,6 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
 
     ![rebuild](rebuild.png)
 
-## Register miner automatically
-
-1. If there is no coins in the account, skip this chapter.
-2. Registered miners will be weighted when calculating block hash power. If they are not registered, it will take more hash power to mine
-3. Registration does not mean that you can successfully mine. Only when mining, the hash power will add weighting, which is easier to be accepted by other nodes and not easily replaced.
-4. The configuration is in govm/conf.json, which can be opened with a text editor
-5. set cost of registered
-   1. It is recommended to set 15tc, the configuration files use t0, so the value should be 15000000000000
-   2. No less than 15tc, configuration 0 means no automatic registration
-   3. Modify the value of cost_of_reg_miner in the configuration file
-   4. More coins have a higher weight, in order to avoid too many people registering and being squeezed out, you can increase the coins
-   5. 15tc is the most cost-effective configuration (if the number of registered people is crowded out, you can increase the amount appropriately)
-   6. You can check the information after successful registration on the "Miner" page
-6. Set the registered serial number (random if not set)
-   1. Automatic registration is registered every 11 blocks (this cannot be changed, it allow more participation)
-   2. There may be many people registering one at the same time, you can choose the registration number
-   3. If it is not in the configuration, you can add a line in the middle.
-   4. It is recommended to set the value to a number from 1 to 11. 0 or not set means random
-   5. Auto-registered transactions will be in the "Send History" on the homepage
-   6. modify lucky_number & cost_of_reg_miner
-
-    ```bash
-    {
-    "server_host":"ws://0.0.0.0:17778/govm,s2s://0.0.0.0:17778",
-    "http_port":9090,
-    "db_addr_type":"tcp",
-    "db_server_addr": "127.0.0.1:17777",
-    "db_server_port": 17777,
-    "chain_of_mine":0,
-    "energy_of_trans":1000000,
-    "wallet_file":"./conf/wallet.key",
-    "cost_of_reg_miner":15000100000000,
-    "do_mine":false,
-    "save_log":true,
-    "lucky_number":1,
-    "identifying_code":true,
-    "password":"govm_pwd@2019"
-    }
-    ```
-
 ## Multi-core mining
 
 1. The default govm version only supports single CPU core mining (multi-core will cause conflicts in smart contract processing)
@@ -264,7 +223,7 @@ If it is lost, it will be lost forever and the virtual currency will never be fo
    3. Open Bash and execute ./mining.exe
 8. If the CPU is not used full, you can modify the configuration and open multiple mining programs
    1. Modify db_server_addr in mining*/conf/conf.json
-   2. Modify the port, can not conflict with other ports. 
+   2. Modify the port, can not conflict with other ports.
    3. Different minings use different ports
 
     ```bash
