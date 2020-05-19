@@ -1,7 +1,7 @@
 # Summary
 
 * [介绍](README.md)
-* [白皮书](wp/README.md)
+* [技术白皮书](wp/README.md)
   * [简介](wp/1.md)
     * [区块链市场](wp/1.1.md)
     * [痛点](wp/1.2.md)
