@@ -644,7 +644,6 @@
 </ul>
 </li>
 <li><a href="#rebuild-smart-contract">Rebuild Smart Contract</a></li>
-<li><a href="#register-miner-automatically">Register miner automatically</a></li>
 <li><a href="#multi-core-mining">Multi-core mining</a></li>
 <li><a href="#more-information">More information</a></li>
 </ul>
@@ -749,7 +748,7 @@ cp ./conf/conf.bak.json ./conf/conf.json
 <li>If already open, click Home</li>
 <li>The following message will be displayed<br> <img src="balance.png" alt="balance"></li>
 <li>&quot;Wallet Address&quot; is your wallet address, this address is used for transfer in and out</li>
-<li>Balance is the balance on the wallet, and the reward for each mining is about 5tc.</li>
+<li>Balance is the balance on the wallet, and the reward for each mining is about 5t9.</li>
 </ol>
 <h3 id="how-to-transfer">How to transfer</h3>
 <ol>
@@ -767,9 +766,9 @@ cp ./conf/conf.bak.json ./conf/conf.json
 <h3 id="token-unit">Token Unit</h3>
 <ol>
 <li>Units t0,t3,t6,t9,tc</li>
-<li>The default unit is tc, which is 10 ^ 12 * t0</li>
+<li>The default unit is t9</li>
 <li>t3 = 1000 * t0, t6 = 1000 * t3, t9 = 1000 * t6, tc = 1000 * t9</li>
-<li>The reward of each mining is about 5tc</li>
+<li>The reward of each mining is about 5t9, DPOS 5t9, team 1t9</li>
 <li>The default unit can be changed on the &quot;Setting&quot; page</li>
 </ol>
 <h3 id="update-software">Update software</h3>
@@ -814,50 +813,6 @@ cp ./conf/conf.bak.json ./conf/conf.json
 <p> <img src="rebuild.png" alt="rebuild"></p>
 </li>
 </ol>
-<h2 id="register-miner-automatically">Register miner automatically</h2>
-<ol>
-<li>If there is no coins in the account, skip this chapter.</li>
-<li>Registered miners will be weighted when calculating block hash power. If they are not registered, it will take more hash power to mine</li>
-<li>Registration does not mean that you can successfully mine. Only when mining, the hash power will add weighting, which is easier to be accepted by other nodes and not easily replaced.</li>
-<li>The configuration is in govm/conf.json, which can be opened with a text editor</li>
-<li>set cost of registered<ol>
-<li>It is recommended to set 15tc, the configuration files use t0, so the value should be 15000000000000</li>
-<li>No less than 15tc, configuration 0 means no automatic registration</li>
-<li>Modify the value of cost_of_reg_miner in the configuration file</li>
-<li>More coins have a higher weight, in order to avoid too many people registering and being squeezed out, you can increase the coins</li>
-<li>15tc is the most cost-effective configuration (if the number of registered people is crowded out, you can increase the amount appropriately)</li>
-<li>You can check the information after successful registration on the &quot;Miner&quot; page</li>
-</ol>
-</li>
-<li><p>Set the registered serial number (random if not set)</p>
-<ol>
-<li>Automatic registration is registered every 11 blocks (this cannot be changed, it allow more participation)</li>
-<li>There may be many people registering one at the same time, you can choose the registration number</li>
-<li>If it is not in the configuration, you can add a line in the middle.</li>
-<li>It is recommended to set the value to a number from 1 to 11. 0 or not set means random</li>
-<li>Auto-registered transactions will be in the &quot;Send History&quot; on the homepage</li>
-<li><p>modify lucky_number &amp; cost_of_reg_miner</p>
-<pre><code class="lang-bash">{
-<span class="hljs-string">&quot;server_host&quot;</span>:<span class="hljs-string">&quot;ws://0.0.0.0:17778/govm,s2s://0.0.0.0:17778&quot;</span>,
-<span class="hljs-string">&quot;http_port&quot;</span>:9090,
-<span class="hljs-string">&quot;db_addr_type&quot;</span>:<span class="hljs-string">&quot;tcp&quot;</span>,
-<span class="hljs-string">&quot;db_server_addr&quot;</span>: <span class="hljs-string">&quot;127.0.0.1:17777&quot;</span>,
-<span class="hljs-string">&quot;db_server_port&quot;</span>: 17777,
-<span class="hljs-string">&quot;chain_of_mine&quot;</span>:0,
-<span class="hljs-string">&quot;energy_of_trans&quot;</span>:1000000,
-<span class="hljs-string">&quot;wallet_file&quot;</span>:<span class="hljs-string">&quot;./conf/wallet.key&quot;</span>,
-<span class="hljs-string">&quot;cost_of_reg_miner&quot;</span>:15000100000000,
-<span class="hljs-string">&quot;do_mine&quot;</span>:<span class="hljs-literal">false</span>,
-<span class="hljs-string">&quot;save_log&quot;</span>:<span class="hljs-literal">true</span>,
-<span class="hljs-string">&quot;lucky_number&quot;</span>:1,
-<span class="hljs-string">&quot;identifying_code&quot;</span>:<span class="hljs-literal">true</span>,
-<span class="hljs-string">&quot;password&quot;</span>:<span class="hljs-string">&quot;govm_pwd@2019&quot;</span>
-}
-</code></pre>
-</li>
-</ol>
-</li>
-</ol>
 <h2 id="multi-core-mining">Multi-core mining</h2>
 <ol>
 <li>The default govm version only supports single CPU core mining (multi-core will cause conflicts in smart contract processing)</li>
@@ -882,7 +837,7 @@ cp ./conf/conf.bak.json ./conf/conf.json
 <li><p>If the CPU is not used full, you can modify the configuration and open multiple mining programs</p>
 <ol>
 <li>Modify db_server_addr in mining*/conf/conf.json</li>
-<li>Modify the port, can not conflict with other ports. </li>
+<li>Modify the port, can not conflict with other ports.</li>
 <li><p>Different minings use different ports</p>
 <pre><code class="lang-bash"><span class="hljs-string">&quot;db_addr_type&quot;</span>: <span class="hljs-string">&quot;tcp&quot;</span>,
 <span class="hljs-string">&quot;db_server_addr&quot;</span>: <span class="hljs-string">&quot;127.0.0.1:12777&quot;</span>,
@@ -921,7 +876,7 @@ cp ./conf/conf.bak.json ./conf/conf.json
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Mine","level":"1.3","depth":1,"previous":{"title":"Conclusion","level":"1.2.10","depth":2,"path":"wp/finish.md","ref":"wp/finish.md","articles":[]},"dir":"ltr"},"config":{"plugins":["accordion","-sharing","chapter-fold","multipart","-livereload","copy-code-button","splitter","-search","hide-element"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"accordion":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"mine/windows.md","mtime":"2020-05-01T12:57:48.986Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-01T00:00:00.000Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Mine","level":"1.3","depth":1,"previous":{"title":"Conclusion","level":"1.2.10","depth":2,"path":"wp/finish.md","ref":"wp/finish.md","articles":[]},"dir":"ltr"},"config":{"plugins":["accordion","-sharing","chapter-fold","multipart","-livereload","copy-code-button","splitter","-search","hide-element"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"accordion":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"mine/windows.md","mtime":"2020-05-11T09:01:32.967Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-01T00:00:00.000Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
