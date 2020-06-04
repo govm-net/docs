@@ -34,7 +34,6 @@
   * [Smart contract](wp/8.md)
   * [Theoretical data](wp/9.md)
   * [Conclusion](wp/finish.md)
-* [Mine](mine/windows.md)
 * [Mining tutorial](mine/README.md)
   * [Simple mining tutorial](mine/mining.md)
   * [Node deployment](mine/windows.md)
