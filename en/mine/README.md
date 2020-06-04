@@ -1,4 +1,4 @@
-# 挖矿教程
+# Mining tutorial
 
 This is a mining tutorial for GOVM blockchain
 
