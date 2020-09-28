@@ -1,7 +1,7 @@
 # Mining tutorial (easy version)
 
 1. Simple mining tutorial users: ordinary miners, [professional miners please build a complete node first](windows.md)
-2. Restrictions for simple mining: each mining account can only start one mining program
+2. Restrictions for simple mining: each mining account can only start 4 mining programs
 3. Currently only supports computer CPU mining
 
 ## Generate a wallet and register as a miner
@@ -24,7 +24,16 @@
 5. The plaintext private key is the only way to operate the virtual currency. If it is lost, it will never be recovered. The plaintext can be recorded on paper and kept properly
 6. You can import the private key in the mobile wallet, you can see the account balance, transfer, voting, etc.
 7. Enter 1, you can see the hash power of the program, it is recommended to check it after 30 minutes of starting, the data is more accurate.
-8. By default, only one thread mining is started, which does not affect other work. If you want to mine at full strength, you can modify the configuration
-9. Configuration file conf.json, open it with a text editor (notepad), modify the number behind thread_number, you can change it to 100
-10. The servers in the configuration are the server list, and the official node is used by default. If you build the node yourself, please change it to your own node address.
-11. The official node account only supports one mining program connection, and there is no limit to its own node
+8. Enter 7, Make sure you are already a miner. Hope: "chain:1, is a miner"
+9. By default, only 30 threads mining is started.
+10. Configuration file conf.json, open it with a text editor (notepad), modify the number behind thread_number, you can change it to 100
+11. The servers in the configuration are the server list, and the official node is used by default. If you build the node yourself, please change it to your own node address.
+12. The official node account only supports one mining program connection, and there is no limit to its own node
+
+## How to mine on chain 2
+
+1. Move 6 coins from Chain 1 to Chain 2. Transaction->Move->Amount 6->submit
+2. Register a miner on chain 2(new wallet program). Transaction->Register Miner->Chain 2->submit
+3. Add 2 to the configuration of the mining program, separated by commas. such as: "chains": [1,2]
+4. Enter 7, Make sure you are already a miner. Hope: "chain:2, is a miner"
+5. Restart mining.exe

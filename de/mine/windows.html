@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Mine(windows)</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="minewindows">Mine(windows)</h1>
+<ul>
+<li><a href="#minewindows">Mine(windows)</a>
+<ul>
+<li><a href="#hardware-requirements">Hardware requirements</a></li>
+<li><a href="#environment-setup">Environment setup</a>
+<ul>
+<li><a href="#golang-installation">golang installation</a></li>
+<li><a href="#git-installation">Git installation</a></li>
+</ul>
+</li>
+<li><a href="#download-the-source-code">Download the source code</a></li>
+<li><a href="#use-the-backed-up-data">Use the backed up data</a></li>
+<li><a href="#starting">Starting</a></li>
+<li><a href="#save-wallet-file">Save wallet file</a></li>
+<li><a href="#check">Check</a>
+<ul>
+<li><a href="#check-if-other-nodes-are-connected">Check if other nodes are connected</a></li>
+<li><a href="#confirm-start-syncing-blocks">Confirm start syncing blocks</a></li>
+<li><a href="#view-your-token">View your token</a></li>
+<li><a href="#how-to-transfer">How to transfer</a></li>
+<li><a href="#token-unit">Token Unit</a></li>
+<li><a href="#update-software">Update software</a>
+<ul>
+<li><a href="#update-database">Update database</a></li>
+<li><a href="#update-govm">Update govm</a></li>
+</ul>
+</li>
+<li><a href="#no-mine-why">No mine, Why</a></li>
+</ul>
+</li>
+<li><a href="#rebuild-smart-contract">Rebuild Smart Contract</a></li>
+<li><a href="#register-miner-automatically">Register miner automatically</a></li>
+<li><a href="#multi-core-mining">Multi-core mining</a></li>
+<li><a href="#more-information">More information</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="hardware-requirements">Hardware requirements</h2>
+<ol>
+<li>Now take windows as an example. Other systems are the same process.</li>
+<li>64-bit windows system, at least windows7<br>
+View: Computer / My Computer-&gt; Right-click-&gt; Properties-&gt; System type: 64-bit operating system<br>
+If it is 32-bit, it is not supported.</li>
+<li>Larger disk space<br>
+blockchain needs to store a large amount of data, so it needs a lot of space, at least 50G<br>
+upfront, because there are fewer transactions, and less space is required. There may be 1G of new data in the next day.<br>
+If there is a solid state drive ,will be better</li>
+<li>Network<br>
+Software always needs to be networked, and because it needs to synchronize data with other nodes, if the network is too poor, it will affect mining</li>
+</ol>
+<h2 id="environment-setup">Environment setup</h2>
+<h3 id="golang-installation">golang installation</h3>
+<ol>
+<li>Download address:<a href="https://golang.org/dl/">https://golang.org/dl/</a></li>
+<li>Download go1.13.*.windows-amd64.msi</li>
+<li>Direct installation, all default configuration, no need to modify</li>
+</ol>
+<h3 id="git-installation">Git installation</h3>
+<ol>
+<li>Download address: <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
+<li>Click on windows to download<br>
+<img src="file:///e:\GoProject\docs\en\mine\dl_git.png" alt="download"></li>
+<li>After downloading, install directly, all default configuration</li>
+<li>Win10 and win2012 suggest to restart the computer</li>
+</ol>
+<h2 id="download-the-source-code">Download the source code</h2>
+<ol>
+<li>
+<p>Select a disk (requires more free space)</p>
+</li>
+<li>
+<p>Create a folder (do not use Chinese, the path is not too long)</p>
+</li>
+<li>
+<p>Enter the folder, right-click in the blank space, and select &quot;Git Bash Here&quot;</p>
+</li>
+<li>
+<p>Enter and press enter: git clone <a href="https://github.com/lengzhao/database.git">https://github.com/lengzhao/database.git</a></p>
+</li>
+<li>
+<p>Enter and press enter: git clone <a href="https://github.com/lengzhao/govm.git">https://github.com/lengzhao/govm.git</a></p>
+</li>
+<li>
+<p>Will start downloading the code</p>
+</li>
+<li>
+<p>After success, there should be 2 folders, database and govm</p>
+</li>
+<li>
+<p>After the code is downloaded, compile the code</p>
+</li>
+<li>
+<p>First compile the database</p>
+<pre><code class="language-bash"><div><span class="hljs-built_in">cd</span> database/
+go build
+ll database.exe
+</div></code></pre>
+</li>
+<li>
+<p>Compile govm:</p>
+<p><strong>If you have anti-virus software, please set the folder as trusted, otherwise the app will be cleaned by the anti-virus software.</strong>
+run <a href="http://upgrade.sh">upgrade.sh</a> or do as follows in bash</p>
+<pre><code class="language-bash"><div><span class="hljs-built_in">cd</span> ../govm/
+go build
+ll govm.exe
+cp ./conf/conf.bak.json ./conf/conf.json
+</div></code></pre>
+</li>
+<li>
+<p>the govm.exe is generated</p>
+</li>
+</ol>
+<h2 id="use-the-backed-up-data">Use the backed up data</h2>
+<ol>
+<li>This step may not be executed. If this step is not performed, data will be synchronized from the beginning, which will take several days</li>
+<li>if already started
+<ul>
+<li>Close govm and database</li>
+<li>run database/uninstall.sh</li>
+<li>remove database/db_dir</li>
+</ul>
+</li>
+<li>Browser open <a href="http://govm.net/dl/">http://govm.net/dl/</a></li>
+<li>Download: database_data_v*.tar.gz and govm_app_v*.gz</li>
+<li>After downloading, put the database_data_v*.tar.gz file into the database folder and decompress it to the current file(database folder)</li>
+<li>After the decompression is successful, there will be an db_dir folder in the database folder</li>
+<li>put the govm_app_v*.gz file into the govm folder and decompress it to the current file(govm folder)</li>
+<li>After the decompression is successful, there will be an app folder in the govm folder</li>
+<li>Go to the folder govm-&gt; tools-&gt; rebuild, double click to execute <a href="http://rebuild.sh">rebuild.sh</a>, the smart contract will be recompiled</li>
+</ol>
+<h2 id="starting">Starting</h2>
+<ol>
+<li>Register the database as a system service, enter the database folder, double-click <a href="http://install.sh">install.sh</a>, the anti-virus software may have a risk prompt, you need to allow this operation<br>
+<img src="file:///e:\GoProject\docs\en\mine\db_install.png" alt="db_install"></li>
+<li>If it is not successful, you can start the database by double-clicking database.exe</li>
+<li>Start govm, click <a href="http://start.sh">start.sh</a>, the program will start and show the software version<br>
+<img src="file:///e:\GoProject\docs\en\mine\start_govm.png" alt="start"></li>
+<li>You can use a browser to log in to <a href="http://localhost:9090">http://localhost:9090</a></li>
+<li>After the program starts, it will automatically connect to other nodes and start to synchronize data (the synchronization time is related to the network and disk)</li>
+<li>After synchronization is completed, mining will start automatically</li>
+<li>One block per minute, whoever digs, the reward is who it is, so competition is needed. The stronger the computer's computing power, the easier it is to dig</li>
+</ol>
+<h2 id="save-wallet-file">Save wallet file</h2>
+<p>The <strong>wallet.key</strong> in the conf folder is the wallet file. Please backup it to save it.<br>
+If it is lost, it will be lost forever and the virtual currency will never be found again.</p>
+<h2 id="check">Check</h2>
+<h3 id="check-if-other-nodes-are-connected">Check if other nodes are connected</h3>
+<ol>
+<li>Browser opens <a href="http://localhost:9090">http://localhost:9090</a></li>
+<li>Click on &quot;Node&quot; in the upper right corner</li>
+<li>Confirm that there are multiple nodes in Nodes, as shown below<br>
+<img src="file:///e:\GoProject\docs\en\mine\nodes.png" alt="nodes"></li>
+<li>If there are no nodes, first check whether the network is normal. If the network is normal, click Submit directly and reconnect.</li>
+<li>Refresh the page and confirm that there are nodes in Nodes</li>
+</ol>
+<h3 id="confirm-start-syncing-blocks">Confirm start syncing blocks</h3>
+<ol>
+<li>Browser opens <a href="http://localhost:9090">http://localhost:9090</a></li>
+<li>Click &quot;Block&quot;</li>
+<li>The block time has changed. After the update is completed, the block time will be the same as system time, as shown below.<br>
+<img src="file:///e:\GoProject\docs\en\mine\block.png" alt="block"></li>
+</ol>
+<h3 id="view-your-token">View your token</h3>
+<ol>
+<li>Browser opens <a href="http://localhost:9090">http://localhost:9090</a></li>
+<li>If already open, click Home</li>
+<li>The following message will be displayed<br>
+<img src="file:///e:\GoProject\docs\en\mine\balance.png" alt="balance"></li>
+<li>&quot;Wallet Address&quot; is your wallet address, this address is used for transfer in and out</li>
+<li>Balance is the balance on the wallet, and the reward for each mining is about 5tc.</li>
+</ol>
+<h3 id="how-to-transfer">How to transfer</h3>
+<ol>
+<li>
+<p>Browser opens <a href="http://localhost:9090">http://localhost:9090</a></p>
+</li>
+<li>
+<p>Click Transfer</p>
+</li>
+<li>
+<p>Fill in the peer's wallet address in &quot;Peer&quot;</p>
+</li>
+<li>
+<p>&quot;Amount&quot; fill in the transfer amount</p>
+</li>
+<li>
+<p>Click Submit</p>
+</li>
+<li>
+<p>The identifying code is enabled by default, you need to enter the identifying code in the govm command line window and press &quot;Enter&quot;</p>
+<p><img src="file:///e:\GoProject\docs\en\mine\identifying_code.png" alt="identifying_code"></p>
+</li>
+<li>
+<p>The transfer is not real-time. This transaction needs to be packaged into a block before it officially takes effect.</p>
+</li>
+</ol>
+<h3 id="token-unit">Token Unit</h3>
+<ol>
+<li>Units t0,t3,t6,t9,tc</li>
+<li>The default unit is tc, which is 10 ^ 12 * t0</li>
+<li>t3 = 1000 * t0, t6 = 1000 * t3, t9 = 1000 * t6, tc = 1000 * t9</li>
+<li>The reward of each mining is about 5tc</li>
+<li>The default unit can be changed on the &quot;Setting&quot; page</li>
+</ol>
+<h3 id="update-software">Update software</h3>
+<h4 id="update-database">Update database</h4>
+<ol>
+<li>exit govm.exe</li>
+<li>Enter database folder</li>
+<li>Close the database window(If not exist, ignore)</li>
+<li>Run <a href="http://upgrade.sh">upgrade.sh</a></li>
+<li>Start database: run <a href="http://install.sh">install.sh</a> Or run database.exe</li>
+</ol>
+<h4 id="update-govm">Update govm</h4>
+<ol>
+<li>
+<p>Exit the program, make sure there is no govm.exe process in the task manager, and if so, force the process to end</p>
+</li>
+<li>
+<p>You can directly run <a href="http://upgrade.sh">upgrade.sh</a> to upgrade, or perform the following operations to upgrade</p>
+<ul>
+<li>In the govm folder, right-click in the blank space and select &quot;Git Bash Here&quot;</li>
+<li>Enter: git pull</li>
+<li>If the update fails (error), delete the conflicting files according to the prompt, and perform the previous step again. As shown in the figure below, you need to delete the files listed in the red box, and then execute <a href="http://upgrade.sh">upgrade.sh</a></li>
+<li>After the update is complete, recompile</li>
+</ul>
+<p><img src="file:///e:\GoProject\docs\en\mine\upgrade_err.png" alt="upgrade_err"></p>
+</li>
+<li>
+<p>Click <a href="http://start.sh">start.sh</a> to start the program</p>
+</li>
+<li>
+<p>If an exception occurs, the program will exit directly, otherwise it will continue to run(such as: not run database)</p>
+</li>
+</ol>
+<h3 id="no-mine-why">No mine, Why</h3>
+<ol>
+<li>The data has not been synchronized. First make sure that the time in the block page is the same as the computer time.</li>
+<li>If the time in the block page has not changed, check whether there is a node in Node. If not, you need to add it manually</li>
+<li>Computer time is wrong, make sure the computer time is the same as universal time</li>
+<li>Computer performance problems, in the early stage, it is easy to dig with ordinary computers. With the increase of nodes, the computing power requirements are getting higher and higher, and ordinary computers are difficult to dig.</li>
+</ol>
+<h2 id="rebuild-smart-contract">Rebuild Smart Contract</h2>
+<ol>
+<li>
+<p>into govm/tools/rebuild/, open Bash</p>
+</li>
+<li>
+<p>in bash,run&quot;./rebuild.sh&quot;</p>
+</li>
+<li>
+<p>finish rebuild smart contract</p>
+</li>
+<li>
+<p>show &quot;result,chain: 1 <nil>&quot; on success</p>
+<p><img src="file:///e:\GoProject\docs\en\mine\rebuild.png" alt="rebuild"></p>
+</li>
+</ol>
+<h2 id="register-miner-automatically">Register miner automatically</h2>
+<ol>
+<li>
+<p>If there is no coins in the account, skip this chapter.</p>
+</li>
+<li>
+<p>Registered miners will be weighted when calculating block hash power. If they are not registered, it will take more hash power to mine</p>
+</li>
+<li>
+<p>Registration does not mean that you can successfully mine. Only when mining, the hash power will add weighting, which is easier to be accepted by other nodes and not easily replaced.</p>
+</li>
+<li>
+<p>The configuration is in govm/conf.json, which can be opened with a text editor</p>
+</li>
+<li>
+<p>set cost of registered</p>
+<ol>
+<li>It is recommended to set 15tc, the configuration files use t0, so the value should be 15000000000000</li>
+<li>No less than 15tc, configuration 0 means no automatic registration</li>
+<li>Modify the value of cost_of_reg_miner in the configuration file</li>
+<li>More coins have a higher weight, in order to avoid too many people registering and being squeezed out, you can increase the coins</li>
+<li>15tc is the most cost-effective configuration (if the number of registered people is crowded out, you can increase the amount appropriately)</li>
+<li>You can check the information after successful registration on the &quot;Miner&quot; page</li>
+</ol>
+</li>
+<li>
+<p>Set the registered serial number (random if not set)</p>
+<ol>
+<li>Automatic registration is registered every 11 blocks (this cannot be changed, it allow more participation)</li>
+<li>There may be many people registering one at the same time, you can choose the registration number</li>
+<li>If it is not in the configuration, you can add a line in the middle.</li>
+<li>It is recommended to set the value to a number from 1 to 11. 0 or not set means random</li>
+<li>Auto-registered transactions will be in the &quot;Send History&quot; on the homepage</li>
+<li>modify lucky_number &amp; cost_of_reg_miner</li>
+</ol>
+<pre><code class="language-bash"><div>{
+<span class="hljs-string">"server_host"</span>:<span class="hljs-string">"ws://0.0.0.0:17778/govm,s2s://0.0.0.0:17778"</span>,
+<span class="hljs-string">"http_port"</span>:9090,
+<span class="hljs-string">"db_addr_type"</span>:<span class="hljs-string">"tcp"</span>,
+<span class="hljs-string">"db_server_addr"</span>: <span class="hljs-string">"127.0.0.1:17777"</span>,
+<span class="hljs-string">"db_server_port"</span>: 17777,
+<span class="hljs-string">"chain_of_mine"</span>:0,
+<span class="hljs-string">"energy_of_trans"</span>:1000000,
+<span class="hljs-string">"wallet_file"</span>:<span class="hljs-string">"./conf/wallet.key"</span>,
+<span class="hljs-string">"cost_of_reg_miner"</span>:15000100000000,
+<span class="hljs-string">"do_mine"</span>:<span class="hljs-literal">false</span>,
+<span class="hljs-string">"save_log"</span>:<span class="hljs-literal">true</span>,
+<span class="hljs-string">"lucky_number"</span>:1,
+<span class="hljs-string">"identifying_code"</span>:<span class="hljs-literal">true</span>,
+<span class="hljs-string">"password"</span>:<span class="hljs-string">"govm_pwd@2019"</span>
+}
+</div></code></pre>
+</li>
+</ol>
+<h2 id="multi-core-mining">Multi-core mining</h2>
+<ol>
+<li>
+<p>The default govm version only supports single CPU core mining (multi-core will cause conflicts in smart contract processing)</p>
+</li>
+<li>
+<p>Here is a dedicated multi-core mining program (need to install and start govm according to the previous tutorial)</p>
+</li>
+<li>
+<p>Download the mining program from the official website: <a href="http://govm.net/dl/">http://govm.net/dl/</a></p>
+</li>
+<li>
+<p>File name mining *, choose the latest version to download</p>
+</li>
+<li>
+<p>After downloading it, unzip it and put the 3 folders database, govm and mining in parallel. Only mining is new, others are original
+<img src="file:///e:\GoProject\docs\en\mine\mining.png" alt="minging"></p>
+</li>
+<li>
+<p>Change parameters(mining/conf/conf.json):</p>
+<ol>
+<li>Set the number of threads: thread_num</li>
+<li>Can not be set to 0, it is recommended to be consistent with the number of CPU cores</li>
+<li>If the computer has other uses, you can set it as needed</li>
+<li>By default, mine all chains. If you only want to mine one chain, you can set chain_of_mine, 0 means all chains, and non-zero means the id of chains, such as 1 or 2.</li>
+</ol>
+</li>
+<li>
+<p>After the configuration modification is completed, double-click mining.exe to start the program, the program needs to be open all the time</p>
+<ol>
+<li>If there is an exception, it will exit the program directly</li>
+<li>When abnormal, you can run it with Bash to view the error message</li>
+<li>Open Bash and execute ./mining.exe</li>
+</ol>
+</li>
+<li>
+<p>If the CPU is not used full, you can modify the configuration and open multiple mining programs</p>
+<ol>
+<li>Modify db_server_addr in mining*/conf/conf.json</li>
+<li>Modify the port, can not conflict with other ports.</li>
+<li>Different minings use different ports</li>
+</ol>
+<pre><code class="language-bash"><div><span class="hljs-string">"db_addr_type"</span>: <span class="hljs-string">"tcp"</span>,
+<span class="hljs-string">"db_server_addr"</span>: <span class="hljs-string">"127.0.0.1:12777"</span>,
+</div></code></pre>
+<pre><code class="language-bash"><div><span class="hljs-string">"db_addr_type"</span>: <span class="hljs-string">"tcp"</span>,
+<span class="hljs-string">"db_server_addr"</span>: <span class="hljs-string">"127.0.0.1:13777"</span>,
+</div></code></pre>
+</li>
+</ol>
+<h2 id="more-information">More information</h2>
+<p>contact details:</p>
+<p><a href="https://discord.gg/u3wYFkD">discord</a></p>
+<p><img src="file:///e:\GoProject\docs\en\mine\email.png" alt="email"></p>
+
+    </body>
+    </html>
